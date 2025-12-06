@@ -402,87 +402,87 @@ class _LoginScreenState extends State<LoginScreen> {
 
                         const SizedBox(height: 30),
 
-                        // Or divider
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                height: 1,
-                                color: Colors.grey.shade300,
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 16),
-                              child: Text(
-                                'Or',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                height: 1,
-                                color: Colors.grey.shade300,
-                              ),
-                            ),
-                          ],
-                        ),
+                        // // Or divider
+                        // Row(
+                        //   children: [
+                        //     Expanded(
+                        //       child: Container(
+                        //         height: 1,
+                        //         color: Colors.grey.shade300,
+                        //       ),
+                        //     ),
+                        //     const Padding(
+                        //       padding: EdgeInsets.symmetric(horizontal: 16),
+                        //       child: Text(
+                        //         'Or',
+                        //         style: TextStyle(
+                        //           color: Colors.grey,
+                        //           fontSize: 14,
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     Expanded(
+                        //       child: Container(
+                        //         height: 1,
+                        //         color: Colors.grey.shade300,
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
 
                         const SizedBox(height: 30),
 
-                        // Social login buttons
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            // Google
-                            GestureDetector(
-                              onTap: () {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text(
-                                      'Google sign-in coming soon!',
-                                    ),
-                                  ),
-                                );
-                              },
-                              child: Image.asset('assets/gogle.png'),
-                            ),
+                        // // Social login buttons
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.center,
+                        //   children: [
+                        //     // Google
+                        //     GestureDetector(
+                        //       onTap: () {
+                        //         ScaffoldMessenger.of(context).showSnackBar(
+                        //           const SnackBar(
+                        //             content: Text(
+                        //               'Google sign-in coming soon!',
+                        //             ),
+                        //           ),
+                        //         );
+                        //       },
+                        //       child: Image.asset('assets/gogle.png'),
+                        //     ),
 
-                            const SizedBox(width: 16),
+                        //     const SizedBox(width: 16),
 
-                            // Facebook
-                            GestureDetector(
-                              onTap: () {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text(
-                                      'Facebook sign-in coming soon!',
-                                    ),
-                                  ),
-                                );
-                              },
-                              child: Image.asset('assets/facebook.png'),
-                            ),
+                        //     // Facebook
+                        //     GestureDetector(
+                        //       onTap: () {
+                        //         ScaffoldMessenger.of(context).showSnackBar(
+                        //           const SnackBar(
+                        //             content: Text(
+                        //               'Facebook sign-in coming soon!',
+                        //             ),
+                        //           ),
+                        //         );
+                        //       },
+                        //       child: Image.asset('assets/facebook.png'),
+                        //     ),
 
-                            const SizedBox(width: 16),
+                        //     const SizedBox(width: 16),
 
-                            // Twitter
-                            GestureDetector(
-                              onTap: () {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text(
-                                      'Twitter sign-in coming soon!',
-                                    ),
-                                  ),
-                                );
-                              },
-                              child: Image.asset('assets/twitter.png'),
-                            ),
-                          ],
-                        ),
+                        //     // Twitter
+                        //     GestureDetector(
+                        //       onTap: () {
+                        //         ScaffoldMessenger.of(context).showSnackBar(
+                        //           const SnackBar(
+                        //             content: Text(
+                        //               'Twitter sign-in coming soon!',
+                        //             ),
+                        //           ),
+                        //         );
+                        //       },
+                        //       child: Image.asset('assets/twitter.png'),
+                        //     ),
+                        //   ],
+                        // ),
                         SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,

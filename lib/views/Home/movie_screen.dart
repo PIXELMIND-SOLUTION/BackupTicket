@@ -1,11 +1,1163 @@
+// // // import 'package:backup_ticket/views/Details/detail_screen.dart';
+// // // import 'package:backup_ticket/views/Nearby/nearby_ticket_screen.dart';
+// // // import 'package:backup_ticket/views/notifications/notification_screen.dart';
+// // // import 'package:backup_ticket/views/seeall/see_all_screen.dart';
+// // // import 'package:flutter/material.dart';
+
+// // // class MovieScreen extends StatelessWidget {
+// // //   const MovieScreen({super.key});
+
+// // //   @override
+// // //   Widget build(BuildContext context) {
+// // //     return Scaffold(
+// // //       appBar: PreferredSize(
+// // //         preferredSize: const Size.fromHeight(90),
+// // //         child: AppBar(
+// // //           automaticallyImplyLeading: false,
+// // //           elevation: 0,
+// // //           flexibleSpace: ClipRRect(
+// // //             borderRadius: const BorderRadius.only(
+// // //               bottomLeft: Radius.circular(25),
+// // //               bottomRight: Radius.circular(25),
+// // //             ),
+// // //             child: Container(
+// // //               decoration: const BoxDecoration(
+// // //                 gradient: LinearGradient(
+// // //                   colors: [Color(0xFF1976D2), Color(0xFF0D47A1)],
+// // //                   begin: Alignment.topLeft,
+// // //                   end: Alignment.bottomRight,
+// // //                 ),
+// // //               ),
+// // //               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+// // //               child: SafeArea(
+// // //                 child: Row(
+// // //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+// // //                   children: [
+// // //                     // Left side (location)
+// // //                     Column(
+// // //                       crossAxisAlignment: CrossAxisAlignment.start,
+// // //                       mainAxisAlignment: MainAxisAlignment.center,
+// // //                       children: [
+// // //                         Row(
+// // //                           children: const [
+// // //                             Icon(Icons.send, color: Colors.white, size: 18),
+// // //                             SizedBox(width: 5),
+// // //                             Text(
+// // //                               "Hyderabad, Telangana..",
+// // //                               style: TextStyle(
+// // //                                 color: Colors.white,
+// // //                                 fontSize: 16,
+// // //                                 fontWeight: FontWeight.w600,
+// // //                               ),
+// // //                             ),
+// // //                             Icon(
+// // //                               Icons.keyboard_arrow_down,
+// // //                               color: Colors.white,
+// // //                               size: 20,
+// // //                             ),
+// // //                           ],
+// // //                         ),
+// // //                         SizedBox(height: 2),
+// // //                         const Text(
+// // //                           "       Hyderabad, Telangana, India",
+// // //                           style: TextStyle(color: Colors.white, fontSize: 12),
+// // //                         ),
+// // //                       ],
+// // //                     ),
+
+// // //                     // Right side (notification)
+// // //                     Container(
+// // //                       padding: const EdgeInsets.all(8),
+// // //                       decoration: BoxDecoration(
+// // //                         color: Colors.white,
+// // //                         shape: BoxShape.circle,
+// // //                         boxShadow: [
+// // //                           BoxShadow(
+// // //                             color: Colors.black26,
+// // //                             blurRadius: 4,
+// // //                             offset: Offset(0, 2),
+// // //                           ),
+// // //                         ],
+// // //                       ),
+// // //                       child: GestureDetector(
+// // //                         onTap: () {
+// // //                           Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationScreen()));
+// // //                         },
+// // //                         child: const Icon(
+// // //                           Icons.notifications_none,
+// // //                           color: Colors.black87,
+// // //                           size: 22,
+// // //                         ),
+// // //                       ),
+// // //                     ),
+// // //                   ],
+// // //                 ),
+// // //               ),
+// // //             ),
+// // //           ),
+// // //         ),
+// // //       ),
+// // //       backgroundColor: const Color(0xFFF5F5F5),
+// // //       body: SafeArea(
+// // //         child: Column(
+// // //           children: [
+// // //             Expanded(
+// // //               child: SingleChildScrollView(
+// // //                 child: Column(
+// // //                   crossAxisAlignment: CrossAxisAlignment.start,
+// // //                   children: [
+// // //                     Row(
+// // //                       children: [
+// // //                         // Search Bar
+// // //                         Expanded(
+// // //                           child: Container(
+// // //                             margin: const EdgeInsets.all(16.0),
+// // //                             padding: const EdgeInsets.symmetric(
+// // //                               horizontal: 16.0,
+// // //                             ),
+// // //                             height: 50,
+// // //                             decoration: BoxDecoration(
+// // //                               border: Border.all(),
+// // //                               color: Colors.white,
+// // //                               borderRadius: BorderRadius.circular(25),
+// // //                               boxShadow: [
+// // //                                 BoxShadow(
+// // //                                   color: Colors.grey.withOpacity(0.1),
+// // //                                   spreadRadius: 1,
+// // //                                   blurRadius: 10,
+// // //                                   offset: const Offset(0, 2),
+// // //                                 ),
+// // //                               ],
+// // //                             ),
+// // //                             child: const Row(
+// // //                               children: [
+// // //                                 Icon(
+// // //                                   Icons.search,
+// // //                                   color: Colors.grey,
+// // //                                   size: 20,
+// // //                                 ),
+// // //                                 SizedBox(width: 12),
+// // //                                 Expanded(
+// // //                                   child: Text(
+// // //                                     'Search',
+// // //                                     style: TextStyle(
+// // //                                       color: Colors.grey,
+// // //                                       fontSize: 16,
+// // //                                     ),
+// // //                                   ),
+// // //                                 ),
+// // //                               ],
+// // //                             ),
+// // //                           ),
+// // //                         ),
+
+// // //                         // Filter Button
+// // //                         Container(
+// // //                           margin: const EdgeInsets.only(right: 16.0),
+// // //                           child: const CircleAvatar(
+// // //                             radius: 25,
+// // //                             backgroundColor: Color(0xFF4A90E2),
+// // //                             child: Icon(
+// // //                               Icons.tune,
+// // //                               color: Colors.white,
+// // //                               size: 20,
+// // //                             ),
+// // //                           ),
+// // //                         ),
+// // //                       ],
+// // //                     ),
+
+// // //                     // Ongoing Movies Section
+// // //                     Padding(
+// // //                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
+// // //                       child: Row(
+// // //                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+// // //                         children: [
+// // //                           const Text(
+// // //                             'Ongoing Movies',
+// // //                             style: TextStyle(
+// // //                               fontSize: 18,
+// // //                               fontWeight: FontWeight.w600,
+// // //                               color: Colors.black87,
+// // //                             ),
+// // //                           ),
+// // //                           TextButton(
+// // //                             onPressed: () {},
+// // //                             child: const Text(
+// // //                               'See All',
+// // //                               style: TextStyle(
+// // //                                 color: Colors.black,
+// // //                                 fontSize: 14,
+// // //                                 fontWeight: FontWeight.w500,
+// // //                               ),
+// // //                             ),
+// // //                           ),
+// // //                         ],
+// // //                       ),
+// // //                     ),
+
+// // //                     // Movies Horizontal List
+// // //                     SizedBox(
+// // //                       height: 280,
+// // //                       child: ListView(
+// // //                         scrollDirection: Axis.horizontal,
+// // //                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
+// // //                         children: [
+// // //                           _buildMovieCard(
+// // //                             'assets/narasimha.png',
+// // //                             'Mahavtar Narasimha',
+// // //                             ['13+', 'Action', 'IMAX'],
+// // //                           ),
+// // //                           GestureDetector(
+// // //                             onTap: () {
+// // //                               Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailScreen()));
+// // //                             },
+// // //                             child: _buildMovieCard(
+// // //                               'assets/veeramallu.png',
+// // //                               'Veeramahulu',
+// // //                               ['UA', 'Drama', 'Thriller'],
+// // //                             ),
+// // //                           ),
+// // //                           _buildMovieCard('assets/kubera.png', 'Kubera', [
+// // //                             'A',
+// // //                             'Action',
+// // //                             '2D',
+// // //                           ]),
+// // //                         ],
+// // //                       ),
+// // //                     ),
+
+// // //                     const SizedBox(height: 24),
+
+// // //                     // Nearby Resale Tickets Section
+// // //                     Padding(
+// // //                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
+// // //                       child: Row(
+// // //                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+// // //                         children: [
+// // //                           const Text(
+// // //                             'Nearby Resale Tickets',
+// // //                             style: TextStyle(
+// // //                               fontSize: 18,
+// // //                               fontWeight: FontWeight.w600,
+// // //                               color: Colors.black87,
+// // //                             ),
+// // //                           ),
+// // //                           TextButton(
+// // //                             onPressed: () {
+// // //                               Navigator.push(context, MaterialPageRoute(builder: (context)=>SeeAllScreen()));
+// // //                             },
+// // //                             child: const Text(
+// // //                               'See All',
+// // //                               style: TextStyle(
+// // //                                 color: Colors.black,
+// // //                                 fontSize: 14,
+// // //                                 fontWeight: FontWeight.w500,
+// // //                               ),
+// // //                             ),
+// // //                           ),
+// // //                         ],
+// // //                       ),
+// // //                     ),
+
+// // //                     // Resale Tickets List
+// // //                     ListView.builder(
+// // //                       shrinkWrap: true,
+// // //                       physics: const NeverScrollableScrollPhysics(),
+// // //                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
+// // //                       itemCount: 4,
+// // //                       itemBuilder: (context, index) {
+// // //                         return _buildResaleTicketCard(context);
+// // //                       },
+// // //                     ),
+
+// // //                     const SizedBox(height: 16),
+// // //                   ],
+// // //                 ),
+// // //               ),
+// // //             ),
+// // //           ],
+// // //         ),
+// // //       ),
+// // //     );
+// // //   }
+
+// // //   Widget _buildMovieCard(String imagePath, String title, List<String> badges) {
+// // //     return Container(
+// // //       width: 160,
+// // //       margin: const EdgeInsets.only(right: 16),
+// // //       child: Column(
+// // //         crossAxisAlignment: CrossAxisAlignment.center,
+// // //         children: [
+// // //           // Movie Poster with Stack
+// // //           Stack(
+// // //             children: [
+// // //               Container(
+// // //                 height: 220,
+// // //                 width: 160,
+// // //                 decoration: BoxDecoration(
+// // //                   borderRadius: BorderRadius.circular(12),
+// // //                   boxShadow: [
+// // //                     BoxShadow(
+// // //                       color: Colors.black.withOpacity(0.2),
+// // //                       spreadRadius: 1,
+// // //                       blurRadius: 8,
+// // //                       offset: const Offset(0, 4),
+// // //                     ),
+// // //                   ],
+// // //                 ),
+// // //                 child: ClipRRect(
+// // //                   borderRadius: BorderRadius.circular(12),
+// // //                   child: Image.asset(
+// // //                     imagePath,
+// // //                     fit: BoxFit.cover,
+// // //                     errorBuilder: (context, error, stackTrace) {
+// // //                       return Container(
+// // //                         color: Colors.grey[300],
+// // //                         child: const Icon(
+// // //                           Icons.movie,
+// // //                           size: 40,
+// // //                           color: Colors.grey,
+// // //                         ),
+// // //                       );
+// // //                     },
+// // //                   ),
+// // //                 ),
+// // //               ),
+// // //             ],
+// // //           ),
+
+// // //           const SizedBox(height: 8),
+
+// // //           // Movie Title
+// // //           Text(
+// // //             title,
+// // //             style: const TextStyle(
+// // //               fontSize: 14,
+// // //               fontWeight: FontWeight.w600,
+// // //               color: Colors.black87,
+// // //             ),
+// // //             maxLines: 2,
+// // //             textAlign: TextAlign.center,
+// // //             overflow: TextOverflow.ellipsis,
+// // //           ),
+
+// // //           const SizedBox(height: 6),
+
+// // //           // Badges Row
+// // //           Row(
+// // //             mainAxisAlignment: MainAxisAlignment.center,
+// // //             children: badges.map((badge) => _buildBadge(badge)).toList(),
+// // //           ),
+// // //         ],
+// // //       ),
+// // //     );
+// // //   }
+
+// // //   Widget _buildBadge(String text) {
+// // //     Color backgroundColor;
+// // //     Color textColor = Colors.white;
+
+// // //     switch (text) {
+// // //       case '13+':
+// // //       case 'UA':
+// // //       case 'A':
+// // //         backgroundColor = Colors.grey[700]!;
+// // //         break;
+// // //       case 'Action':
+// // //       case 'Drama':
+// // //       case 'Thriller':
+// // //         backgroundColor = Colors.grey[600]!;
+// // //         break;
+// // //       case 'IMAX':
+// // //       case '2D':
+// // //         backgroundColor = Colors.grey[600]!;
+// // //         break;
+// // //       default:
+// // //         backgroundColor = Colors.grey[600]!;
+// // //     }
+
+// // //     return Container(
+// // //       margin: const EdgeInsets.only(right: 4),
+// // //       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+// // //       decoration: BoxDecoration(
+// // //         color: backgroundColor,
+// // //         borderRadius: BorderRadius.circular(4),
+// // //       ),
+// // //       child: Text(
+// // //         text,
+// // //         style: TextStyle(
+// // //           color: textColor,
+// // //           fontSize: 10,
+// // //           fontWeight: FontWeight.w500,
+// // //         ),
+// // //       ),
+// // //     );
+// // //   }
+
+// // //   Widget _buildResaleTicketCard(BuildContext context) {
+// // //     return GestureDetector(
+// // //       onTap: () {
+// // //         Navigator.push(context, MaterialPageRoute(builder: (context)=>NearbyTickets()));
+// // //       },
+// // //       child: Container(
+// // //         margin: const EdgeInsets.only(bottom: 12),
+// // //         padding: const EdgeInsets.all(12),
+// // //         decoration: BoxDecoration(
+// // //           border: Border.all(),
+// // //           color: Colors.white,
+// // //           borderRadius: BorderRadius.circular(12),
+// // //           boxShadow: [
+// // //             BoxShadow(
+// // //               color: Colors.grey.withOpacity(0.1),
+// // //               spreadRadius: 1,
+// // //               blurRadius: 8,
+// // //               offset: const Offset(0, 2),
+// // //             ),
+// // //           ],
+// // //         ),
+// // //         child: Row(
+// // //           children: [
+// // //             // Movie Poster
+// // //             Container(
+// // //               width: 60,
+// // //               height: 80,
+// // //               decoration: BoxDecoration(
+// // //                 color: Colors.grey[300],
+// // //                 borderRadius: BorderRadius.circular(6),
+// // //                 image: const DecorationImage(
+// // //                   image: AssetImage('assets/kubera.png'),
+// // //                   fit: BoxFit.cover,
+// // //                 ),
+// // //               ),
+// // //             ),
+// // //             const SizedBox(width: 12),
+
+// // //             // Movie Details
+// // //             Expanded(
+// // //               child: Column(
+// // //                 crossAxisAlignment: CrossAxisAlignment.start,
+// // //                 children: [
+// // //                   const Text(
+// // //                     'Kuberaa',
+// // //                     style: TextStyle(
+// // //                       fontSize: 16,
+// // //                       fontWeight: FontWeight.w600,
+// // //                       color: Colors.black87,
+// // //                     ),
+// // //                   ),
+// // //                   const SizedBox(height: 4),
+// // //                   const Text(
+// // //                     '3D.Telungu',
+// // //                     style: TextStyle(fontSize: 12, color: Colors.grey),
+// // //                   ),
+// // //                   const SizedBox(height: 4),
+
+// // //                   const Text(
+// // //                     '4 Aug 8:30 PM',
+// // //                     style: TextStyle(fontSize: 14, color: Colors.black),
+// // //                   ),
+// // //                   const SizedBox(height: 2),
+// // //                   const Text(
+// // //                     'INOX:GVK One,Hyderabad',
+// // //                     style: TextStyle(fontSize: 12, color: Colors.grey),
+// // //                   ),
+// // //                   const SizedBox(height: 8),
+// // //                 ],
+// // //               ),
+// // //             ),
+
+// // //             // Price
+// // //             const Column(
+// // //               crossAxisAlignment: CrossAxisAlignment.end,
+// // //               children: [
+// // //                 Text(
+// // //                   '₹200',
+// // //                   style: TextStyle(
+// // //                     fontSize: 18,
+// // //                     fontWeight: FontWeight.w600,
+// // //                     color: Colors.black87,
+// // //                   ),
+// // //                 ),
+// // //               ],
+// // //             ),
+// // //           ],
+// // //         ),
+// // //       ),
+// // //     );
+// // //   }
+// // // }
+
+// // // ignore_for_file: deprecated_member_use
+
+// // import 'package:backup_ticket/model/movie_ticket_model.dart';
+// // import 'package:backup_ticket/provider/selltickets/sell_movie_ticket_provider.dart';
+// // import 'package:backup_ticket/views/Details/detail_screen.dart';
+// // import 'package:backup_ticket/views/Nearby/nearby_ticket_screen.dart';
+// // import 'package:backup_ticket/views/notifications/notification_screen.dart';
+// // import 'package:backup_ticket/views/search/search_screen.dart';
+// // import 'package:backup_ticket/views/seeall/see_all_screen.dart';
+// // import 'package:flutter/material.dart';
+// // import 'package:provider/provider.dart';
+
+// // class MovieScreen extends StatefulWidget {
+// //   const MovieScreen({super.key});
+
+// //   @override
+// //   State<MovieScreen> createState() => _MovieScreenState();
+// // }
+
+// // class _MovieScreenState extends State<MovieScreen> {
+
+// //  final List<String> _staticMovieImages = [
+// //     'assets/narasimha.png',
+// //     'assets/veeramallu.png',
+// //     'assets/kubera.png',
+// //   ];
+
+// //   @override
+// //   void initState() {
+// //     super.initState();
+// //     // Fetch tickets when the screen loads
+// //     WidgetsBinding.instance.addPostFrameCallback((_) {
+// //       context.read<MovieTicketProvider>().fetchAllTickets();
+// //     });
+// //   }
+
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return Scaffold(
+// //       appBar: PreferredSize(
+// //         preferredSize: const Size.fromHeight(90),
+// //         child: AppBar(
+// //           automaticallyImplyLeading: false,
+// //           elevation: 0,
+// //           flexibleSpace: ClipRRect(
+// //             borderRadius: const BorderRadius.only(
+// //               bottomLeft: Radius.circular(25),
+// //               bottomRight: Radius.circular(25),
+// //             ),
+// //             child: Container(
+// //               decoration: const BoxDecoration(
+// //                 gradient: LinearGradient(
+// //                   colors: [Color(0xFF1976D2), Color(0xFF0D47A1)],
+// //                   begin: Alignment.topLeft,
+// //                   end: Alignment.bottomRight,
+// //                 ),
+// //               ),
+// //               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+// //               child: SafeArea(
+// //                 child: Row(
+// //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+// //                   children: [
+// //                     // Left side (location)
+// //                     Column(
+// //                       crossAxisAlignment: CrossAxisAlignment.start,
+// //                       mainAxisAlignment: MainAxisAlignment.center,
+// //                       children: [
+// //                         Row(
+// //                           children: const [
+// //                             Icon(Icons.send, color: Colors.white, size: 18),
+// //                             SizedBox(width: 5),
+// //                             Text(
+// //                               "Hyderabad, Telangana..",
+// //                               style: TextStyle(
+// //                                 color: Colors.white,
+// //                                 fontSize: 16,
+// //                                 fontWeight: FontWeight.w600,
+// //                               ),
+// //                             ),
+// //                             Icon(
+// //                               Icons.keyboard_arrow_down,
+// //                               color: Colors.white,
+// //                               size: 20,
+// //                             ),
+// //                           ],
+// //                         ),
+// //                         SizedBox(height: 2),
+// //                         const Text(
+// //                           "       Hyderabad, Telangana, India",
+// //                           style: TextStyle(color: Colors.white, fontSize: 12),
+// //                         ),
+// //                       ],
+// //                     ),
+
+// //                     // Right side (notification)
+// //                     Container(
+// //                       padding: const EdgeInsets.all(8),
+// //                       decoration: BoxDecoration(
+// //                         color: Colors.white,
+// //                         shape: BoxShape.circle,
+// //                         boxShadow: [
+// //                           BoxShadow(
+// //                             color: Colors.black26,
+// //                             blurRadius: 4,
+// //                             offset: Offset(0, 2),
+// //                           ),
+// //                         ],
+// //                       ),
+// //                       child: GestureDetector(
+// //                         onTap: () {
+// //                           Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationScreen()));
+// //                         },
+// //                         child: const Icon(
+// //                           Icons.notifications_none,
+// //                           color: Colors.black87,
+// //                           size: 22,
+// //                         ),
+// //                       ),
+// //                     ),
+// //                   ],
+// //                 ),
+// //               ),
+// //             ),
+// //           ),
+// //         ),
+// //       ),
+// //       backgroundColor: const Color(0xFFF5F5F5),
+// //       body: SafeArea(
+// //         child: Column(
+// //           children: [
+// //             Expanded(
+// //               child: SingleChildScrollView(
+// //                 child: Column(
+// //                   crossAxisAlignment: CrossAxisAlignment.start,
+// //                   children: [
+// //                     Row(
+// //                       children: [
+// //                         // Search Bar
+// //                         Expanded(
+// //                           child: GestureDetector(
+// //                             onTap: () {
+// //                               Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen()));
+// //                             },
+// //                             child: Container(
+// //                               margin: const EdgeInsets.all(16.0),
+// //                               padding: const EdgeInsets.symmetric(
+// //                                 horizontal: 16.0,
+// //                               ),
+// //                               height: 50,
+// //                               decoration: BoxDecoration(
+// //                                 border: Border.all(),
+// //                                 color: Colors.white,
+// //                                 borderRadius: BorderRadius.circular(25),
+// //                                 boxShadow: [
+// //                                   BoxShadow(
+// //                                     color: Colors.grey.withOpacity(0.1),
+// //                                     spreadRadius: 1,
+// //                                     blurRadius: 10,
+// //                                     offset: const Offset(0, 2),
+// //                                   ),
+// //                                 ],
+// //                               ),
+// //                               child: const Row(
+// //                                 children: [
+// //                                   Icon(
+// //                                     Icons.search,
+// //                                     color: Colors.grey,
+// //                                     size: 20,
+// //                                   ),
+// //                                   SizedBox(width: 12),
+// //                                   Expanded(
+// //                                     child: Text(
+// //                                       'Search',
+// //                                       style: TextStyle(
+// //                                         color: Colors.grey,
+// //                                         fontSize: 16,
+// //                                       ),
+// //                                     ),
+// //                                   ),
+// //                                 ],
+// //                               ),
+// //                             ),
+// //                           ),
+// //                         ),
+
+// //                         // Filter Button
+// //                         // Container(
+// //                         //   margin: const EdgeInsets.only(right: 16.0),
+// //                         //   child: const CircleAvatar(
+// //                         //     radius: 25,
+// //                         //     backgroundColor: Color(0xFF4A90E2),
+// //                         //     child: Icon(
+// //                         //       Icons.tune,
+// //                         //       color: Colors.white,
+// //                         //       size: 20,
+// //                         //     ),
+// //                         //   ),
+// //                         // ),
+// //                       ],
+// //                     ),
+
+// //                     // Ongoing Movies Section
+// //                     Padding(
+// //                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
+// //                       child: Row(
+// //                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+// //                         children: [
+// //                           const Text(
+// //                             'Ongoing Movies',
+// //                             style: TextStyle(
+// //                               fontSize: 18,
+// //                               fontWeight: FontWeight.w600,
+// //                               color: Colors.black87,
+// //                             ),
+// //                           ),
+// //                           TextButton(
+// //                             onPressed: () {},
+// //                             child: const Text(
+// //                               'See All',
+// //                               style: TextStyle(
+// //                                 color: Colors.black,
+// //                                 fontSize: 14,
+// //                                 fontWeight: FontWeight.w500,
+// //                               ),
+// //                             ),
+// //                           ),
+// //                         ],
+// //                       ),
+// //                     ),
+
+// //                     // Movies Horizontal List
+// //                     SizedBox(
+// //                       height: 280,
+// //                       child: ListView(
+// //                         scrollDirection: Axis.horizontal,
+// //                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
+// //                         children: [
+// //                           _buildMovieCard(
+// //                             'assets/narasimha.png',
+// //                             'Mahavtar Narasimha',
+// //                             ['13+', 'Action', 'IMAX'],
+// //                           ),
+// //                           GestureDetector(
+// //                             onTap: () {
+// //                               Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailScreen()));
+// //                             },
+// //                             child: _buildMovieCard(
+// //                               'assets/veeramallu.png',
+// //                               'Veeramahulu',
+// //                               ['UA', 'Drama', 'Thriller'],
+// //                             ),
+// //                           ),
+// //                           _buildMovieCard('assets/kubera.png', 'Kubera', [
+// //                             'A',
+// //                             'Action',
+// //                             '2D',
+// //                           ]),
+// //                         ],
+// //                       ),
+// //                     ),
+
+// //                     const SizedBox(height: 24),
+
+// //                     // Nearby Resale Tickets Section
+// //                     Padding(
+// //                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
+// //                       child: Row(
+// //                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+// //                         children: [
+// //                           const Text(
+// //                             'Nearby Resale Tickets',
+// //                             style: TextStyle(
+// //                               fontSize: 18,
+// //                               fontWeight: FontWeight.w600,
+// //                               color: Colors.black87,
+// //                             ),
+// //                           ),
+// //                           Spacer(),
+// //                           TextButton(
+// //                             onPressed: () {
+// //                               Navigator.push(context, MaterialPageRoute(builder: (context)=>SeeAllScreen()));
+// //                             },
+// //                             child: const Text(
+// //                               'See All',
+// //                               style: TextStyle(
+// //                                 color: Colors.black,
+// //                                 fontSize: 14,
+// //                                 fontWeight: FontWeight.w500,
+// //                               ),
+// //                             ),
+// //                           ),
+// //                           Icon(Icons.arrow_forward_ios,size: 15,)
+// //                         ],
+// //                       ),
+// //                     ),
+
+// //                     // Resale Tickets List - Updated to use Firebase data
+// //                     Consumer<MovieTicketProvider>(
+// //                       builder: (context, provider, child) {
+// //                         if (provider.isLoading) {
+// //                           return const Center(
+// //                             child: Padding(
+// //                               padding: EdgeInsets.all(20.0),
+// //                               child: CircularProgressIndicator(),
+// //                             ),
+// //                           );
+// //                         }
+
+// //                         if (provider.error != null) {
+// //                           return Center(
+// //                             child: Padding(
+// //                               padding: const EdgeInsets.all(20.0),
+// //                               child: Column(
+// //                                 children: [
+// //                                   Text(
+// //                                     'Error: ${provider.error}',
+// //                                     style: const TextStyle(color: Colors.red),
+// //                                     textAlign: TextAlign.center,
+// //                                   ),
+// //                                   const SizedBox(height: 10),
+// //                                   ElevatedButton(
+// //                                     onPressed: () => provider.fetchAllTickets(),
+// //                                     child: const Text('Retry'),
+// //                                   ),
+// //                                 ],
+// //                               ),
+// //                             ),
+// //                           );
+// //                         }
+
+// //                         if (provider.tickets.isEmpty) {
+// //                           return const Center(
+// //                             child: Padding(
+// //                               padding: EdgeInsets.all(20.0),
+// //                               child: Text(
+// //                                 'No tickets available',
+// //                                 style: TextStyle(
+// //                                   fontSize: 16,
+// //                                   color: Colors.grey,
+// //                                 ),
+// //                               ),
+// //                             ),
+// //                           );
+// //                         }
+
+// //                         // Display only first 4 tickets (for "See All" functionality)
+// //                         final ticketsToShow = provider.tickets.take(4).toList();
+
+// //                         return ListView.builder(
+// //                           shrinkWrap: true,
+// //                           physics: const NeverScrollableScrollPhysics(),
+// //                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
+// //                           itemCount: ticketsToShow.length,
+// //                           itemBuilder: (context, index) {
+// //                             return _buildResaleTicketCard(context, ticketsToShow[index]);
+// //                           },
+// //                         );
+// //                       },
+// //                     ),
+
+// //                     const SizedBox(height: 16),
+// //                   ],
+// //                 ),
+// //               ),
+// //             ),
+// //           ],
+// //         ),
+// //       ),
+// //     );
+// //   }
+
+// //   Widget _buildMovieCard(String imagePath, String title, List<String> badges) {
+// //     return Container(
+// //       width: 160,
+// //       margin: const EdgeInsets.only(right: 16),
+// //       child: Column(
+// //         crossAxisAlignment: CrossAxisAlignment.center,
+// //         children: [
+// //           // Movie Poster with Stack
+// //           Stack(
+// //             children: [
+// //               Container(
+// //                 height: 220,
+// //                 width: 160,
+// //                 decoration: BoxDecoration(
+// //                   borderRadius: BorderRadius.circular(12),
+// //                   boxShadow: [
+// //                     BoxShadow(
+// //                       color: Colors.black.withOpacity(0.2),
+// //                       spreadRadius: 1,
+// //                       blurRadius: 8,
+// //                       offset: const Offset(0, 4),
+// //                     ),
+// //                   ],
+// //                 ),
+// //                 child: ClipRRect(
+// //                   borderRadius: BorderRadius.circular(12),
+// //                   child: Image.asset(
+// //                     imagePath,
+// //                     fit: BoxFit.cover,
+// //                     errorBuilder: (context, error, stackTrace) {
+// //                       return Container(
+// //                         color: Colors.grey[300],
+// //                         child: const Icon(
+// //                           Icons.movie,
+// //                           size: 40,
+// //                           color: Colors.grey,
+// //                         ),
+// //                       );
+// //                     },
+// //                   ),
+// //                 ),
+// //               ),
+// //             ],
+// //           ),
+
+// //           const SizedBox(height: 8),
+
+// //           // Movie Title
+// //           Text(
+// //             title,
+// //             style: const TextStyle(
+// //               fontSize: 14,
+// //               fontWeight: FontWeight.w600,
+// //               color: Colors.black87,
+// //             ),
+// //             maxLines: 2,
+// //             textAlign: TextAlign.center,
+// //             overflow: TextOverflow.ellipsis,
+// //           ),
+
+// //           const SizedBox(height: 6),
+
+// //           // Badges Row
+// //           Row(
+// //             mainAxisAlignment: MainAxisAlignment.center,
+// //             children: badges.map((badge) => _buildBadge(badge)).toList(),
+// //           ),
+// //         ],
+// //       ),
+// //     );
+// //   }
+
+// //   Widget _buildBadge(String text) {
+// //     Color backgroundColor;
+// //     Color textColor = Colors.white;
+
+// //     switch (text) {
+// //       case '13+':
+// //       case 'UA':
+// //       case 'A':
+// //         backgroundColor = Colors.grey[700]!;
+// //         break;
+// //       case 'Action':
+// //       case 'Drama':
+// //       case 'Thriller':
+// //         backgroundColor = Colors.grey[600]!;
+// //         break;
+// //       case 'IMAX':
+// //       case '2D':
+// //         backgroundColor = Colors.grey[600]!;
+// //         break;
+// //       default:
+// //         backgroundColor = Colors.grey[600]!;
+// //     }
+
+// //     return Container(
+// //       margin: const EdgeInsets.only(right: 4),
+// //       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+// //       decoration: BoxDecoration(
+// //         color: backgroundColor,
+// //         borderRadius: BorderRadius.circular(4),
+// //       ),
+// //       child: Text(
+// //         text,
+// //         style: TextStyle(
+// //           color: textColor,
+// //           fontSize: 10,
+// //           fontWeight: FontWeight.w500,
+// //         ),
+// //       ),
+// //     );
+// //   }
+
+// //   Widget _buildResaleTicketCard(BuildContext context, MovieTicket ticket) {
+// //     return GestureDetector(
+// //       onTap: () {
+// //         Navigator.push(
+// //           context,
+// //           MaterialPageRoute(
+// //             builder: (context) => NearbyTickets(),
+// //             settings: RouteSettings(arguments: ticket), // Pass ticket data
+// //           ),
+// //         );
+// //       },
+// //       child: Container(
+// //         margin: const EdgeInsets.only(bottom: 12),
+// //         padding: const EdgeInsets.all(12),
+// //         decoration: BoxDecoration(
+// //           border: Border.all(),
+// //           color: Colors.white,
+// //           borderRadius: BorderRadius.circular(12),
+// //           boxShadow: [
+// //             BoxShadow(
+// //               color: Colors.grey.withOpacity(0.1),
+// //               spreadRadius: 1,
+// //               blurRadius: 8,
+// //               offset: const Offset(0, 2),
+// //             ),
+// //           ],
+// //         ),
+// //         child: Row(
+// //           children: [
+// //             // Movie Poster - Using Firebase image or fallback
+// //             Container(
+// //               width: 60,
+// //               height: 80,
+// //               decoration: BoxDecoration(
+// //                 color: Colors.grey[300],
+// //                 borderRadius: BorderRadius.circular(6),
+// //               ),
+// //               child: ClipRRect(
+// //                 borderRadius: BorderRadius.circular(6),
+// //                 child: ticket.ticketImageUrl != null && ticket.ticketImageUrl!.isNotEmpty
+// //                     ? Image.network(
+// //                         ticket.ticketImageUrl!,
+// //                         fit: BoxFit.cover,
+// //                         loadingBuilder: (context, child, loadingProgress) {
+// //                           if (loadingProgress == null) return child;
+// //                           return Center(
+// //                             child: CircularProgressIndicator(
+// //                               value: loadingProgress.expectedTotalBytes != null
+// //                                   ? loadingProgress.cumulativeBytesLoaded /
+// //                                       loadingProgress.expectedTotalBytes!
+// //                                   : null,
+// //                             ),
+// //                           );
+// //                         },
+// //                         errorBuilder: (context, error, stackTrace) {
+// //                           return Container(
+// //                             color: Colors.grey[300],
+// //                             child: const Icon(
+// //                               Icons.movie,
+// //                               color: Colors.grey,
+// //                               size: 30,
+// //                             ),
+// //                           );
+// //                         },
+// //                       )
+// //                     : Container(
+// //                         color: Colors.grey[300],
+// //                         child: const Icon(
+// //                           Icons.movie,
+// //                           color: Colors.grey,
+// //                           size: 30,
+// //                         ),
+// //                       ),
+// //               ),
+// //             ),
+// //             const SizedBox(width: 12),
+
+// //             // Movie Details - Using Firebase data
+// //             Expanded(
+// //               child: Column(
+// //                 crossAxisAlignment: CrossAxisAlignment.start,
+// //                 children: [
+// //                   Text(
+// //                     ticket.movieName,
+// //                     style: const TextStyle(
+// //                       fontSize: 16,
+// //                       fontWeight: FontWeight.w600,
+// //                       color: Colors.black87,
+// //                     ),
+// //                     maxLines: 1,
+// //                     overflow: TextOverflow.ellipsis,
+// //                   ),
+// //                   const SizedBox(height: 4),
+// //                   const SizedBox(height: 4),
+
+// //                   Text(
+// //                     '${_formatDate(ticket.showDate)} ${ticket.showTime}',
+// //                     style: const TextStyle(fontSize: 14, color: Colors.black),
+// //                   ),
+// //                   const SizedBox(height: 2),
+// //                   Text(
+// //                     '${ticket.theatrePlace}',
+// //                     style: const TextStyle(fontSize: 12, color: Color.fromARGB(255, 75, 75, 75)),
+// //                     maxLines: 1,
+// //                     overflow: TextOverflow.ellipsis,
+// //                   ),
+// //                   const SizedBox(height: 8),
+// //                 ],
+// //               ),
+// //             ),
+
+// //             // Price - Using Firebase data
+// //             Column(
+// //               crossAxisAlignment: CrossAxisAlignment.end,
+// //               children: [
+// //                 Text(
+// //                   '₹${ticket.pricePerTicket.toStringAsFixed(0)}',
+// //                   style: const TextStyle(
+// //                     fontSize: 18,
+// //                     fontWeight: FontWeight.w600,
+// //                     color: Colors.black87,
+// //                   ),
+// //                 ),
+// //                 const SizedBox(height: 4),
+// //               ],
+// //             ),
+// //           ],
+// //         ),
+// //       ),
+// //     );
+// //   }
+
+// //   // Helper method to format date
+// //   String _formatDate(DateTime date) {
+// //     const months = [
+// //       'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+// //       'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+// //     ];
+// //     return '${date.day} ${months[date.month - 1]}';
+// //   }
+// // }
+
+// import 'package:backup_ticket/model/movie_ticket_model.dart';
+// import 'package:backup_ticket/provider/selltickets/sell_movie_ticket_provider.dart';
 // import 'package:backup_ticket/views/Details/detail_screen.dart';
+// import 'package:backup_ticket/views/Home/image_detail_screen.dart';
 // import 'package:backup_ticket/views/Nearby/nearby_ticket_screen.dart';
 // import 'package:backup_ticket/views/notifications/notification_screen.dart';
+// import 'package:backup_ticket/views/search/search_screen.dart';
 // import 'package:backup_ticket/views/seeall/see_all_screen.dart';
 // import 'package:flutter/material.dart';
+// import 'package:geolocator/geolocator.dart';
+// import 'package:provider/provider.dart';
 
-// class MovieScreen extends StatelessWidget {
+// class MovieScreen extends StatefulWidget {
 //   const MovieScreen({super.key});
+
+//   @override
+//   State<MovieScreen> createState() => _MovieScreenState();
+// }
+
+// class _MovieScreenState extends State<MovieScreen> {
+
+//   // Static movie images that will cycle through
+//   final List<String> _staticMovieImages = [
+//     'assets/ogposter.jpg',
+//     'assets/mirai.jpeg',
+//     'assets/littlehearts.jpg',
+//   ];
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     // Fetch tickets when the screen loads
+//     WidgetsBinding.instance.addPostFrameCallback((_) {
+//       context.read<MovieTicketProvider>().fetchAllTickets();
+//     });
+//   }
+
+//   // Get unique movie names from tickets
+//   List<String> _getUniqueMovieNames(List<MovieTicket> tickets) {
+//     final Set<String> uniqueNames = tickets
+//         .map((ticket) => ticket.movieName)
+//         .toSet();
+//     return uniqueNames.toList();
+//   }
 
 //   @override
 //   Widget build(BuildContext context) {
@@ -81,7 +1233,12 @@
 //                       ),
 //                       child: GestureDetector(
 //                         onTap: () {
-//                           Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationScreen()));
+//                           Navigator.push(
+//                             context,
+//                             MaterialPageRoute(
+//                               builder: (context) => NotificationScreen(),
+//                             ),
+//                           );
 //                         },
 //                         child: const Icon(
 //                           Icons.notifications_none,
@@ -110,57 +1267,53 @@
 //                       children: [
 //                         // Search Bar
 //                         Expanded(
-//                           child: Container(
-//                             margin: const EdgeInsets.all(16.0),
-//                             padding: const EdgeInsets.symmetric(
-//                               horizontal: 16.0,
-//                             ),
-//                             height: 50,
-//                             decoration: BoxDecoration(
-//                               border: Border.all(),
-//                               color: Colors.white,
-//                               borderRadius: BorderRadius.circular(25),
-//                               boxShadow: [
-//                                 BoxShadow(
-//                                   color: Colors.grey.withOpacity(0.1),
-//                                   spreadRadius: 1,
-//                                   blurRadius: 10,
-//                                   offset: const Offset(0, 2),
+//                           child: GestureDetector(
+//                             onTap: () {
+//                               Navigator.push(
+//                                 context,
+//                                 MaterialPageRoute(
+//                                   builder: (context) => SearchScreen(),
 //                                 ),
-//                               ],
-//                             ),
-//                             child: const Row(
-//                               children: [
-//                                 Icon(
-//                                   Icons.search,
-//                                   color: Colors.grey,
-//                                   size: 20,
-//                                 ),
-//                                 SizedBox(width: 12),
-//                                 Expanded(
-//                                   child: Text(
-//                                     'Search',
-//                                     style: TextStyle(
-//                                       color: Colors.grey,
-//                                       fontSize: 16,
+//                               );
+//                             },
+//                             child: Container(
+//                               margin: const EdgeInsets.all(16.0),
+//                               padding: const EdgeInsets.symmetric(
+//                                 horizontal: 16.0,
+//                               ),
+//                               height: 50,
+//                               decoration: BoxDecoration(
+//                                 border: Border.all(),
+//                                 color: Colors.white,
+//                                 borderRadius: BorderRadius.circular(25),
+//                                 boxShadow: [
+//                                   BoxShadow(
+//                                     color: Colors.grey.withOpacity(0.1),
+//                                     spreadRadius: 1,
+//                                     blurRadius: 10,
+//                                     offset: const Offset(0, 2),
+//                                   ),
+//                                 ],
+//                               ),
+//                               child: const Row(
+//                                 children: [
+//                                   Icon(
+//                                     Icons.search,
+//                                     color: Colors.grey,
+//                                     size: 20,
+//                                   ),
+//                                   SizedBox(width: 12),
+//                                   Expanded(
+//                                     child: Text(
+//                                       'Search',
+//                                       style: TextStyle(
+//                                         color: Colors.grey,
+//                                         fontSize: 16,
+//                                       ),
 //                                     ),
 //                                   ),
-//                                 ),
-//                               ],
-//                             ),
-//                           ),
-//                         ),
-
-//                         // Filter Button
-//                         Container(
-//                           margin: const EdgeInsets.only(right: 16.0),
-//                           child: const CircleAvatar(
-//                             radius: 25,
-//                             backgroundColor: Color(0xFF4A90E2),
-//                             child: Icon(
-//                               Icons.tune,
-//                               color: Colors.white,
-//                               size: 20,
+//                                 ],
+//                               ),
 //                             ),
 //                           ),
 //                         ),
@@ -175,68 +1328,6 @@
 //                         children: [
 //                           const Text(
 //                             'Ongoing Movies',
-//                             style: TextStyle(
-//                               fontSize: 18,
-//                               fontWeight: FontWeight.w600,
-//                               color: Colors.black87,
-//                             ),
-//                           ),
-//                           TextButton(
-//                             onPressed: () {},
-//                             child: const Text(
-//                               'See All',
-//                               style: TextStyle(
-//                                 color: Colors.black,
-//                                 fontSize: 14,
-//                                 fontWeight: FontWeight.w500,
-//                               ),
-//                             ),
-//                           ),
-//                         ],
-//                       ),
-//                     ),
-
-//                     // Movies Horizontal List
-//                     SizedBox(
-//                       height: 280,
-//                       child: ListView(
-//                         scrollDirection: Axis.horizontal,
-//                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-//                         children: [
-//                           _buildMovieCard(
-//                             'assets/narasimha.png',
-//                             'Mahavtar Narasimha',
-//                             ['13+', 'Action', 'IMAX'],
-//                           ),
-//                           GestureDetector(
-//                             onTap: () {
-//                               Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailScreen()));
-//                             },
-//                             child: _buildMovieCard(
-//                               'assets/veeramallu.png',
-//                               'Veeramahulu',
-//                               ['UA', 'Drama', 'Thriller'],
-//                             ),
-//                           ),
-//                           _buildMovieCard('assets/kubera.png', 'Kubera', [
-//                             'A',
-//                             'Action',
-//                             '2D',
-//                           ]),
-//                         ],
-//                       ),
-//                     ),
-
-//                     const SizedBox(height: 24),
-
-//                     // Nearby Resale Tickets Section
-//                     Padding(
-//                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-//                       child: Row(
-//                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                         children: [
-//                           const Text(
-//                             'Nearby Resale Tickets',
 //                             style: TextStyle(
 //                               fontSize: 18,
 //                               fontWeight: FontWeight.w600,
@@ -260,14 +1351,197 @@
 //                       ),
 //                     ),
 
-//                     // Resale Tickets List
-//                     ListView.builder(
-//                       shrinkWrap: true,
-//                       physics: const NeverScrollableScrollPhysics(),
+//                     // Movies Horizontal List - Modified to show dynamic movie names
+//                     Consumer<MovieTicketProvider>(
+//                       builder: (context, provider, child) {
+//                         if (provider.isLoading) {
+//                           return SizedBox(
+//                             height: 280,
+//                             child: Center(child: CircularProgressIndicator()),
+//                           );
+//                         }
+
+//                         final uniqueMovieNames = _getUniqueMovieNames(
+//                           provider.tickets,
+//                         );
+
+//                         // If no movies added yet, show default movies
+//                         if (uniqueMovieNames.isEmpty) {
+//                           return SizedBox(
+//                             height: 280,
+//                             child: ListView(
+//                               scrollDirection: Axis.horizontal,
+//                               padding: const EdgeInsets.symmetric(
+//                                 horizontal: 16.0,
+//                               ),
+//                               children: [
+//                                 _buildMovieCard(
+//                                   'assets/narasimha.png',
+//                                   'Mahavtar Narasimha',
+//                                   ['13+', 'Action', 'IMAX'],
+//                                 ),
+//                                 _buildMovieCard(
+//                                   'assets/veeramallu.png',
+//                                   'Veeramahulu',
+//                                   ['UA', 'Drama', 'Thriller'],
+//                                 ),
+//                                 _buildMovieCard('assets/kubera.png', 'Kubera', [
+//                                   'A',
+//                                   'Action',
+//                                   '2D',
+//                                 ]),
+//                               ],
+//                             ),
+//                           );
+//                         }
+
+//                         // Show dynamic movie names with static images
+//                         return SizedBox(
+//                           height: 280,
+//                           child: ListView.builder(
+//                             scrollDirection: Axis.horizontal,
+//                             padding: const EdgeInsets.symmetric(
+//                               horizontal: 16.0,
+//                             ),
+//                             itemCount: uniqueMovieNames.length,
+//                             itemBuilder: (context, index) {
+//                               final movieName = uniqueMovieNames[index];
+//                               // Use static images in rotation
+//                               final imageIndex =
+//                                   index % _staticMovieImages.length;
+//                               final imagePath = _staticMovieImages[imageIndex];
+
+//                               // Get sample badges based on movie name or use default
+//                               final badges = _getBadgesForMovie(movieName);
+
+//                               return GestureDetector(
+//                                 onTap: () {
+//                                   // You can navigate to detail screen with this movie's data
+//                                   Navigator.push(
+//                                     context,
+//                                     MaterialPageRoute(
+//                                       builder: (context) => DetailScreen(),
+//                                       settings: RouteSettings(
+//                                         arguments: movieName,
+//                                       ),
+//                                     ),
+//                                   );
+//                                 },
+//                                 child: _buildMovieCard(
+//                                   imagePath,
+//                                   movieName,
+//                                   badges,
+//                                 ),
+//                               );
+//                             },
+//                           ),
+//                         );
+//                       },
+//                     ),
+
+//                     const SizedBox(height: 24),
+
+//                     // Nearby Resale Tickets Section
+//                     Padding(
 //                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-//                       itemCount: 4,
-//                       itemBuilder: (context, index) {
-//                         return _buildResaleTicketCard(context);
+//                       child: Row(
+//                         children: [
+//                           const Text(
+//                             'Nearby Resale Tickets',
+//                             style: TextStyle(
+//                               fontSize: 18,
+//                               fontWeight: FontWeight.w600,
+//                               color: Colors.black87,
+//                             ),
+//                           ),
+//                           Spacer(),
+//                           TextButton(
+//                             onPressed: () {
+//                               Navigator.push(
+//                                 context,
+//                                 MaterialPageRoute(
+//                                   builder: (context) => SeeAllScreen(),
+//                                 ),
+//                               );
+//                             },
+//                             child: const Text(
+//                               'See All',
+//                               style: TextStyle(
+//                                 color: Colors.black,
+//                                 fontSize: 14,
+//                                 fontWeight: FontWeight.w500,
+//                               ),
+//                             ),
+//                           ),
+//                           Icon(Icons.arrow_forward_ios, size: 15),
+//                         ],
+//                       ),
+//                     ),
+
+//                     // Resale Tickets List - Using Firebase data
+//                     Consumer<MovieTicketProvider>(
+//                       builder: (context, provider, child) {
+//                         if (provider.isLoading) {
+//                           return const Center(
+//                             child: Padding(
+//                               padding: EdgeInsets.all(20.0),
+//                               child: CircularProgressIndicator(),
+//                             ),
+//                           );
+//                         }
+
+//                         if (provider.error != null) {
+//                           return Center(
+//                             child: Padding(
+//                               padding: const EdgeInsets.all(20.0),
+//                               child: Column(
+//                                 children: [
+//                                   Text(
+//                                     'Error: ${provider.error}',
+//                                     style: const TextStyle(color: Colors.red),
+//                                     textAlign: TextAlign.center,
+//                                   ),
+//                                   const SizedBox(height: 10),
+//                                   ElevatedButton(
+//                                     onPressed: () => provider.fetchAllTickets(),
+//                                     child: const Text('Retry'),
+//                                   ),
+//                                 ],
+//                               ),
+//                             ),
+//                           );
+//                         }
+
+//                         if (provider.tickets.isEmpty) {
+//                           return const Center(
+//                             child: Padding(
+//                               padding: EdgeInsets.all(20.0),
+//                               child: Text(
+//                                 'No tickets available',
+//                                 style: TextStyle(
+//                                   fontSize: 16,
+//                                   color: Colors.grey,
+//                                 ),
+//                               ),
+//                             ),
+//                           );
+//                         }
+
+//                         // Display only first 4 tickets (for "See All" functionality)
+//                         final ticketsToShow = provider.tickets.take(4).toList();
+
+//                         return ListView.builder(
+//                           shrinkWrap: true,
+//                           physics: const NeverScrollableScrollPhysics(),
+//                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
+//                           itemCount: ticketsToShow.length,
+//                           itemBuilder: (context, index) {
+//                             return _buildResaleTicketCard(
+//                               context,
+//                               ticketsToShow[index],
+//                             );
+//                           },
+//                         );
 //                       },
 //                     ),
 
@@ -282,74 +1556,112 @@
 //     );
 //   }
 
+//   List<MovieTicket> getNearbyTickets(List<MovieTicket> tickets, Position userPosition, double maxDistanceInKm) {
+//   return tickets.where((ticket) {
+//     if (ticket.latitude == null || ticket.longitude == null) return false;
+//     final distanceInMeters = Geolocator.distanceBetween(
+//       userPosition.latitude,
+//       userPosition.longitude,
+//       ticket.latitude!,
+//       ticket.longitude!,
+//     );
+//     return distanceInMeters / 1000 <= maxDistanceInKm;
+//   }).toList();
+// }
+
+//   // Helper method to generate badges for movies
+//   List<String> _getBadgesForMovie(String movieName) {
+//     // You can customize this logic based on your requirements
+//     // For now, returning some sample badges
+//     final List<List<String>> badgeOptions = [
+//       ['13+', 'Action', 'IMAX'],
+//       ['UA', 'Drama', 'Thriller'],
+//       ['A', 'Action', '2D'],
+//       ['U', 'Comedy', 'HD'],
+//       ['13+', 'Romance', 'IMAX'],
+//     ];
+
+//     // Use hash of movie name to consistently assign badges
+//     final index = movieName.hashCode.abs() % badgeOptions.length;
+//     return badgeOptions[index];
+//   }
+
 //   Widget _buildMovieCard(String imagePath, String title, List<String> badges) {
-//     return Container(
-//       width: 160,
-//       margin: const EdgeInsets.only(right: 16),
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.center,
-//         children: [
-//           // Movie Poster with Stack
-//           Stack(
-//             children: [
-//               Container(
-//                 height: 220,
-//                 width: 160,
-//                 decoration: BoxDecoration(
-//                   borderRadius: BorderRadius.circular(12),
-//                   boxShadow: [
-//                     BoxShadow(
-//                       color: Colors.black.withOpacity(0.2),
-//                       spreadRadius: 1,
-//                       blurRadius: 8,
-//                       offset: const Offset(0, 4),
+//     return GestureDetector(
+//       onTap: () {
+//         Navigator.push(
+//           context,
+//           MaterialPageRoute(builder: (context) => ImageDetailScreen(movieName: title,assetImagePath: imagePath,)),
+//         );
+//       },
+//       child: Container(
+//         width: 160,
+//         margin: const EdgeInsets.only(right: 16),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.center,
+//           children: [
+//             // Movie Poster with Stack
+//             Stack(
+//               children: [
+//                 Container(
+//                   height: 220,
+//                   width: 160,
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(12),
+//                     boxShadow: [
+//                       BoxShadow(
+//                         color: Colors.black.withOpacity(0.2),
+//                         spreadRadius: 1,
+//                         blurRadius: 8,
+//                         offset: const Offset(0, 4),
+//                       ),
+//                     ],
+//                   ),
+//                   child: ClipRRect(
+//                     borderRadius: BorderRadius.circular(12),
+//                     child: Image.asset(
+//                       imagePath,
+//                       fit: BoxFit.cover,
+//                       errorBuilder: (context, error, stackTrace) {
+//                         return Container(
+//                           color: Colors.grey[300],
+//                           child: const Icon(
+//                             Icons.movie,
+//                             size: 40,
+//                             color: Colors.grey,
+//                           ),
+//                         );
+//                       },
 //                     ),
-//                   ],
-//                 ),
-//                 child: ClipRRect(
-//                   borderRadius: BorderRadius.circular(12),
-//                   child: Image.asset(
-//                     imagePath,
-//                     fit: BoxFit.cover,
-//                     errorBuilder: (context, error, stackTrace) {
-//                       return Container(
-//                         color: Colors.grey[300],
-//                         child: const Icon(
-//                           Icons.movie,
-//                           size: 40,
-//                           color: Colors.grey,
-//                         ),
-//                       );
-//                     },
 //                   ),
 //                 ),
-//               ),
-//             ],
-//           ),
-
-//           const SizedBox(height: 8),
-
-//           // Movie Title
-//           Text(
-//             title,
-//             style: const TextStyle(
-//               fontSize: 14,
-//               fontWeight: FontWeight.w600,
-//               color: Colors.black87,
+//               ],
 //             ),
-//             maxLines: 2,
-//             textAlign: TextAlign.center,
-//             overflow: TextOverflow.ellipsis,
-//           ),
 
-//           const SizedBox(height: 6),
+//             const SizedBox(height: 8),
 
-//           // Badges Row
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: badges.map((badge) => _buildBadge(badge)).toList(),
-//           ),
-//         ],
+//             // Movie Title
+//             Text(
+//               title,
+//               style: const TextStyle(
+//                 fontSize: 14,
+//                 fontWeight: FontWeight.w600,
+//                 color: Colors.black87,
+//               ),
+//               maxLines: 2,
+//               textAlign: TextAlign.center,
+//               overflow: TextOverflow.ellipsis,
+//             ),
+
+//             const SizedBox(height: 6),
+
+//             // Badges Row
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: badges.map((badge) => _buildBadge(badge)).toList(),
+//             ),
+//           ],
+//         ),
 //       ),
 //     );
 //   }
@@ -362,15 +1674,19 @@
 //       case '13+':
 //       case 'UA':
 //       case 'A':
+//       case 'U':
 //         backgroundColor = Colors.grey[700]!;
 //         break;
 //       case 'Action':
 //       case 'Drama':
 //       case 'Thriller':
+//       case 'Comedy':
+//       case 'Romance':
 //         backgroundColor = Colors.grey[600]!;
 //         break;
 //       case 'IMAX':
 //       case '2D':
+//       case 'HD':
 //         backgroundColor = Colors.grey[600]!;
 //         break;
 //       default:
@@ -395,10 +1711,16 @@
 //     );
 //   }
 
-//   Widget _buildResaleTicketCard(BuildContext context) {
+//   Widget _buildResaleTicketCard(BuildContext context, MovieTicket ticket) {
 //     return GestureDetector(
 //       onTap: () {
-//         Navigator.push(context, MaterialPageRoute(builder: (context)=>NearbyTickets()));
+//         Navigator.push(
+//           context,
+//           MaterialPageRoute(
+//             builder: (context) => NearbyTickets(),
+//             settings: RouteSettings(arguments: ticket), // Pass ticket data
+//           ),
+//         );
 //       },
 //       child: Container(
 //         margin: const EdgeInsets.only(bottom: 12),
@@ -418,67 +1740,106 @@
 //         ),
 //         child: Row(
 //           children: [
-//             // Movie Poster
+//             // Movie Poster - Using Firebase image or fallback
 //             Container(
 //               width: 60,
 //               height: 80,
 //               decoration: BoxDecoration(
 //                 color: Colors.grey[300],
 //                 borderRadius: BorderRadius.circular(6),
-//                 image: const DecorationImage(
-//                   image: AssetImage('assets/kubera.png'),
-//                   fit: BoxFit.cover,
-//                 ),
+//               ),
+//               child: ClipRRect(
+//                 borderRadius: BorderRadius.circular(6),
+//                 child:
+//                     ticket.ticketImageUrl != null &&
+//                         ticket.ticketImageUrl!.isNotEmpty
+//                     ? Image.network(
+//                         ticket.ticketImageUrl!,
+//                         fit: BoxFit.cover,
+//                         loadingBuilder: (context, child, loadingProgress) {
+//                           if (loadingProgress == null) return child;
+//                           return Center(
+//                             child: CircularProgressIndicator(
+//                               value: loadingProgress.expectedTotalBytes != null
+//                                   ? loadingProgress.cumulativeBytesLoaded /
+//                                         loadingProgress.expectedTotalBytes!
+//                                   : null,
+//                             ),
+//                           );
+//                         },
+//                         errorBuilder: (context, error, stackTrace) {
+//                           return Container(
+//                             color: Colors.grey[300],
+//                             child: const Icon(
+//                               Icons.movie,
+//                               color: Colors.grey,
+//                               size: 30,
+//                             ),
+//                           );
+//                         },
+//                       )
+//                     : Container(
+//                         color: Colors.grey[300],
+//                         child: const Icon(
+//                           Icons.movie,
+//                           color: Colors.grey,
+//                           size: 30,
+//                         ),
+//                       ),
 //               ),
 //             ),
 //             const SizedBox(width: 12),
-      
-//             // Movie Details
+
+//             // Movie Details - Using Firebase data
 //             Expanded(
 //               child: Column(
 //                 crossAxisAlignment: CrossAxisAlignment.start,
 //                 children: [
-//                   const Text(
-//                     'Kuberaa',
-//                     style: TextStyle(
+//                   Text(
+//                     ticket.movieName,
+//                     style: const TextStyle(
 //                       fontSize: 16,
 //                       fontWeight: FontWeight.w600,
 //                       color: Colors.black87,
 //                     ),
+//                     maxLines: 1,
+//                     overflow: TextOverflow.ellipsis,
 //                   ),
 //                   const SizedBox(height: 4),
-//                   const Text(
-//                     '3D.Telungu',
-//                     style: TextStyle(fontSize: 12, color: Colors.grey),
-//                   ),
 //                   const SizedBox(height: 4),
-      
-//                   const Text(
-//                     '4 Aug 8:30 PM',
-//                     style: TextStyle(fontSize: 14, color: Colors.black),
+
+//                   Text(
+//                     '${_formatDate(ticket.showDate)} ${ticket.showTime}',
+//                     style: const TextStyle(fontSize: 14, color: Colors.black),
 //                   ),
 //                   const SizedBox(height: 2),
-//                   const Text(
-//                     'INOX:GVK One,Hyderabad',
-//                     style: TextStyle(fontSize: 12, color: Colors.grey),
+//                   Text(
+//                     '${ticket.theatrePlace}',
+//                     style: const TextStyle(
+//                       fontSize: 12,
+//                       color: Color.fromARGB(255, 75, 75, 75),
+//                     ),
+//                     maxLines: 1,
+//                     overflow: TextOverflow.ellipsis,
 //                   ),
 //                   const SizedBox(height: 8),
 //                 ],
 //               ),
 //             ),
-      
-//             // Price
-//             const Column(
+
+//             // Price - Using Firebase data
+//             Column(
 //               crossAxisAlignment: CrossAxisAlignment.end,
 //               children: [
 //                 Text(
-//                   '₹200',
-//                   style: TextStyle(
+//                   '₹${ticket.pricePerTicket.toStringAsFixed(0)}',
+//                   style: const TextStyle(
 //                     fontSize: 18,
 //                     fontWeight: FontWeight.w600,
 //                     color: Colors.black87,
 //                   ),
 //                 ),
+//                 const SizedBox(height: 4),
 //               ],
 //             ),
 //           ],
@@ -486,28 +1847,40 @@
 //       ),
 //     );
 //   }
+
+//   // Helper method to format date
+//   String _formatDate(DateTime date) {
+//     const months = [
+//       'Jan',
+//       'Feb',
+//       'Mar',
+//       'Apr',
+//       'May',
+//       'Jun',
+//       'Jul',
+//       'Aug',
+//       'Sep',
+//       'Oct',
+//       'Nov',
+//       'Dec',
+//     ];
+//     return '${date.day} ${months[date.month - 1]}';
+//   }
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+import 'package:backup_ticket/helper/auth_helper.dart';
 import 'package:backup_ticket/model/movie_ticket_model.dart';
+import 'package:backup_ticket/provider/auth/user_profile_provider.dart';
+import 'package:backup_ticket/provider/movie/movie_category_provider.dart';
 import 'package:backup_ticket/provider/selltickets/sell_movie_ticket_provider.dart';
 import 'package:backup_ticket/views/Details/detail_screen.dart';
+import 'package:backup_ticket/views/Home/image_detail_screen.dart';
 import 'package:backup_ticket/views/Nearby/nearby_ticket_screen.dart';
 import 'package:backup_ticket/views/notifications/notification_screen.dart';
+import 'package:backup_ticket/views/search/search_screen.dart';
 import 'package:backup_ticket/views/seeall/see_all_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 
 class MovieScreen extends StatefulWidget {
@@ -518,18 +1891,327 @@ class MovieScreen extends StatefulWidget {
 }
 
 class _MovieScreenState extends State<MovieScreen> {
+  // Location-related state variables
+  Position? _userPosition;
+  List<MovieTicket> _nearbyTickets = [];
+  bool _isLoadingLocation = false;
+  double _maxDistanceKm = 10.0; // Default 10km radius
+
+  String _userName = "Guest";
+  String _userId = "";
+
+  // Static movie images that will cycle through
+  final List<String> _staticMovieImages = [
+    'assets/ogposter.jpg',
+    'assets/mirai.jpeg',
+    'assets/littlehearts.jpg',
+  ];
+
   @override
   void initState() {
     super.initState();
     // Fetch tickets when the screen loads
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   context.read<MovieTicketProvider>().fetchAllTickets();
+    //   _getCurrentLocation(); // Get user location
+    // });
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<MovieTicketProvider>().fetchAllTickets();
+      context.read<MovieCategoryProvider>().fetchCategories();
+      context.read<UserProfileProvider>().loadUserProfile(_userId);
+
+      // _getCurrentLocation();
+      _loadUserName();
     });
+  }
+
+  //  Future<void> _loadUserName() async {
+  //   final name = await UserPreferences.getName();
+  //   if (mounted && name != null && name.isNotEmpty) {
+  //     setState(() {
+  //       _userName = name;
+  //       _userId=
+  //     });
+  //   }
+  // }
+
+  Future<void> _loadUserName() async {
+    final name = await UserPreferences.getName();
+    final userId = await UserPreferences.getUserId(); // <-- Fetch userId
+
+    if (mounted &&
+        name != null &&
+        name.isNotEmpty &&
+        userId != null &&
+        userId.isNotEmpty) {
+      setState(() {
+        _userName = name;
+        _userId = userId;
+      });
+    }
+  }
+
+  // Get current user location
+  Future<void> _getCurrentLocation() async {
+    setState(() {
+      _isLoadingLocation = true;
+    });
+
+    try {
+      // Check if location services are enabled
+      bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+      if (!serviceEnabled) {
+        if (mounted) {
+          // ScaffoldMessenger.of(context).showSnackBar(
+          //   const SnackBar(content: Text('Please enable location services')),
+          // );
+        }
+        return;
+      }
+
+      // Check location permissions
+      LocationPermission permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+        if (permission == LocationPermission.denied) {
+          if (mounted) {
+            // ScaffoldMessenger.of(context).showSnackBar(
+            //   const SnackBar(content: Text('Location permission denied')),
+            // );
+          }
+          return;
+        }
+      }
+
+      if (permission == LocationPermission.deniedForever) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Location permissions are permanently denied. Please enable them in settings.',
+              ),
+            ),
+          );
+        }
+        return;
+      }
+
+      // Get current position
+      Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+      );
+
+      if (mounted) {
+        setState(() {
+          _userPosition = position;
+        });
+
+        // Filter nearby tickets after getting location
+        _filterNearbyTickets();
+      }
+    } catch (e) {
+      if (mounted) {
+        // ScaffoldMessenger.of(
+        //   context,
+        // ).showSnackBar(SnackBar(content: Text('Error getting location: $e')));
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoadingLocation = false;
+        });
+      }
+    }
+  }
+
+  // Filter tickets based on location
+  void _filterNearbyTickets() {
+    if (_userPosition == null) return;
+
+    final provider = context.read<MovieTicketProvider>();
+    final allTickets = provider.tickets;
+
+    final nearby = getNearbyTickets(allTickets, _userPosition!, _maxDistanceKm);
+
+    setState(() {
+      _nearbyTickets = nearby;
+    });
+  }
+
+  // Enhanced getNearbyTickets method with distance calculation
+  List<MovieTicket> getNearbyTickets(
+    List<MovieTicket> tickets,
+    Position userPosition,
+    double maxDistanceInKm,
+  ) {
+    List<MovieTicket> nearbyWithDistance = [];
+
+    for (var ticket in tickets) {
+      if (ticket.latitude == null || ticket.longitude == null) continue;
+
+      final distanceInMeters = Geolocator.distanceBetween(
+        userPosition.latitude,
+        userPosition.longitude,
+        ticket.latitude!,
+        ticket.longitude!,
+      );
+
+      final distanceInKm = distanceInMeters / 1000;
+
+      if (distanceInKm <= maxDistanceInKm) {
+        nearbyWithDistance.add(ticket);
+      }
+    }
+
+    // Sort by distance (closest first)
+    nearbyWithDistance.sort((a, b) {
+      double distanceA =
+          Geolocator.distanceBetween(
+            userPosition.latitude,
+            userPosition.longitude,
+            a.latitude!,
+            a.longitude!,
+          ) /
+          1000;
+
+      double distanceB =
+          Geolocator.distanceBetween(
+            userPosition.latitude,
+            userPosition.longitude,
+            b.latitude!,
+            b.longitude!,
+          ) /
+          1000;
+
+      return distanceA.compareTo(distanceB);
+    });
+
+    return nearbyWithDistance;
+  }
+
+  // Calculate distance for display
+  String _getDistanceText(MovieTicket ticket) {
+    if (_userPosition == null ||
+        ticket.latitude == null ||
+        ticket.longitude == null) {
+      return '';
+    }
+
+    final distanceInMeters = Geolocator.distanceBetween(
+      _userPosition!.latitude,
+      _userPosition!.longitude,
+      ticket.latitude!,
+      ticket.longitude!,
+    );
+
+    final distanceInKm = distanceInMeters / 1000;
+
+    if (distanceInKm < 1) {
+      return '${distanceInMeters.round()}m away';
+    } else {
+      return '${distanceInKm.toStringAsFixed(1)}km away';
+    }
+  }
+
+  // Get unique movie names from tickets
+  List<String> _getUniqueMovieNames(List<MovieTicket> tickets) {
+    final Set<String> uniqueNames = tickets
+        .map((ticket) => ticket.movieName)
+        .toSet();
+    return uniqueNames.toList();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: PreferredSize(
+      //   preferredSize: const Size.fromHeight(90),
+      //   child: AppBar(
+      //     automaticallyImplyLeading: false,
+      //     elevation: 0,
+      //     flexibleSpace: ClipRRect(
+      //       borderRadius: const BorderRadius.only(
+      //         bottomLeft: Radius.circular(25),
+      //         bottomRight: Radius.circular(25),
+      //       ),
+      //       child: Container(
+      //         decoration: const BoxDecoration(
+      //           gradient: LinearGradient(
+      //             colors: [Color(0xFF1976D2), Color(0xFF0D47A1)],
+      //             begin: Alignment.topLeft,
+      //             end: Alignment.bottomRight,
+      //           ),
+      //         ),
+      //         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+      //         child: SafeArea(
+      //           child: Row(
+      //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //             children: [
+      //               // Left side (location)
+      //               Column(
+      //                 crossAxisAlignment: CrossAxisAlignment.start,
+      //                 mainAxisAlignment: MainAxisAlignment.center,
+      //                 children: [
+      //                   Row(
+      //                     children: [
+      //                       const Icon(Icons.person, color: Colors.white, size: 18),
+      //                       const SizedBox(width: 8),
+      //                       Text(
+      //                         "Hello,\n$_userName",
+      //                         style: const TextStyle(
+      //                           color: Colors.white,
+      //                           fontSize: 16,
+      //                           fontWeight: FontWeight.w600,
+      //                         ),
+      //                       ),
+      //                     ],
+      //                   ),
+      //                   // SizedBox(height: 2),
+      //                   // const Text(
+      //                   //   "       Hyderabad, Telangana, India",
+      //                   //   style: TextStyle(color: Colors.white, fontSize: 12),
+      //                   // ),
+      //                 ],
+      //               ),
+
+      //               // Right side (notification)
+      //               // Container(
+      //               //   padding: const EdgeInsets.all(8),
+      //               //   decoration: BoxDecoration(
+      //               //     color: Colors.white,
+      //               //     shape: BoxShape.circle,
+      //               //     boxShadow: [
+      //               //       BoxShadow(
+      //               //         color: Colors.black26,
+      //               //         blurRadius: 4,
+      //               //         offset: Offset(0, 2),
+      //               //       ),
+      //               //     ],
+      //               //   ),
+      //               //   child: GestureDetector(
+      //               //     onTap: () {
+      //               //       Navigator.push(
+      //               //         context,
+      //               //         MaterialPageRoute(
+      //               //           builder: (context) => NotificationScreen(),
+      //               //         ),
+      //               //       );
+      //               //     },
+      //               //     child: const Icon(
+      //               //       Icons.notifications_none,
+      //               //       color: Colors.black87,
+      //               //       size: 22,
+      //               //     ),
+      //               //   ),
+      //               // ),
+      //             ],
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //   ),
+      // ),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(90),
         child: AppBar(
@@ -553,63 +2235,98 @@ class _MovieScreenState extends State<MovieScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // Left side (location)
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    // Left side (profile image and name)
+                    Row(
                       children: [
-                        Row(
-                          children: const [
-                            Icon(Icons.send, color: Colors.white, size: 18),
-                            SizedBox(width: 5),
-                            Text(
-                              "Hyderabad, Telangana..",
+                        // Profile Image
+                        Consumer<UserProfileProvider>(
+                          builder: (context, profileProvider, child) {
+                            return CircleAvatar(
+                              radius: 22,
+                              backgroundColor: Colors.white,
+                              child: CircleAvatar(
+                                radius: 20,
+                                backgroundImage:
+                                    profileProvider.profileImageUrl != null &&
+                                        profileProvider
+                                            .profileImageUrl!
+                                            .isNotEmpty
+                                    ? NetworkImage(
+                                        profileProvider.profileImageUrl!,
+                                      )
+                                    : null,
+                                backgroundColor: Colors.grey[300],
+                                child:
+                                    profileProvider.profileImageUrl == null ||
+                                        profileProvider.profileImageUrl!.isEmpty
+                                    ? const Icon(
+                                        Icons.person,
+                                        color: Colors.grey,
+                                        size: 24,
+                                      )
+                                    : null,
+                              ),
+                            );
+                          },
+                        ),
+                        const SizedBox(width: 12),
+                        // Name
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Hello,",
                               style: TextStyle(
+                                color: Colors.white70,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            Text(
+                              _userName,
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            Icon(
-                              Icons.keyboard_arrow_down,
-                              color: Colors.white,
-                              size: 20,
-                            ),
                           ],
-                        ),
-                        SizedBox(height: 2),
-                        const Text(
-                          "       Hyderabad, Telangana, India",
-                          style: TextStyle(color: Colors.white, fontSize: 12),
                         ),
                       ],
                     ),
 
-                    // Right side (notification)
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 4,
-                            offset: Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationScreen()));
-                        },
-                        child: const Icon(
-                          Icons.notifications_none,
-                          color: Colors.black87,
-                          size: 22,
-                        ),
-                      ),
-                    ),
+                    // Right side (notification) - currently commented out
+                    // You can uncomment this if you want the notification icon back
+                    // Container(
+                    //   padding: const EdgeInsets.all(8),
+                    //   decoration: BoxDecoration(
+                    //     color: Colors.white,
+                    //     shape: BoxShape.circle,
+                    //     boxShadow: [
+                    //       BoxShadow(
+                    //         color: Colors.black26,
+                    //         blurRadius: 4,
+                    //         offset: Offset(0, 2),
+                    //       ),
+                    //     ],
+                    //   ),
+                    //   child: GestureDetector(
+                    //     onTap: () {
+                    //       Navigator.push(
+                    //         context,
+                    //         MaterialPageRoute(
+                    //           builder: (context) => NotificationScreen(),
+                    //         ),
+                    //       );
+                    //     },
+                    //     child: const Icon(
+                    //       Icons.notifications_none,
+                    //       color: Colors.black87,
+                    //       size: 22,
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -630,57 +2347,53 @@ class _MovieScreenState extends State<MovieScreen> {
                       children: [
                         // Search Bar
                         Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.all(16.0),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16.0,
-                            ),
-                            height: 50,
-                            decoration: BoxDecoration(
-                              border: Border.all(),
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(25),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.1),
-                                  spreadRadius: 1,
-                                  blurRadius: 10,
-                                  offset: const Offset(0, 2),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SearchScreen(),
                                 ),
-                              ],
-                            ),
-                            child: const Row(
-                              children: [
-                                Icon(
-                                  Icons.search,
-                                  color: Colors.grey,
-                                  size: 20,
-                                ),
-                                SizedBox(width: 12),
-                                Expanded(
-                                  child: Text(
-                                    'Search',
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 16,
+                              );
+                            },
+                            child: Container(
+                              margin: const EdgeInsets.all(16.0),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                              ),
+                              height: 50,
+                              decoration: BoxDecoration(
+                                border: Border.all(),
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(25),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.1),
+                                    spreadRadius: 1,
+                                    blurRadius: 10,
+                                    offset: const Offset(0, 2),
+                                  ),
+                                ],
+                              ),
+                              child: const Row(
+                                children: [
+                                  Icon(
+                                    Icons.search,
+                                    color: Colors.grey,
+                                    size: 20,
+                                  ),
+                                  SizedBox(width: 12),
+                                  Expanded(
+                                    child: Text(
+                                      'Search',
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 16,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-
-                        // Filter Button
-                        Container(
-                          margin: const EdgeInsets.only(right: 16.0),
-                          child: const CircleAvatar(
-                            radius: 25,
-                            backgroundColor: Color(0xFF4A90E2),
-                            child: Icon(
-                              Icons.tune,
-                              color: Colors.white,
-                              size: 20,
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -702,7 +2415,14 @@ class _MovieScreenState extends State<MovieScreen> {
                             ),
                           ),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SeeAllScreen(),
+                                ),
+                              );
+                            },
                             child: const Text(
                               'See All',
                               style: TextStyle(
@@ -716,44 +2436,178 @@ class _MovieScreenState extends State<MovieScreen> {
                       ),
                     ),
 
-                    // Movies Horizontal List
-                    SizedBox(
-                      height: 280,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        children: [
-                          _buildMovieCard(
-                            'assets/narasimha.png',
-                            'Mahavtar Narasimha',
-                            ['13+', 'Action', 'IMAX'],
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailScreen()));
-                            },
-                            child: _buildMovieCard(
-                              'assets/veeramallu.png',
-                              'Veeramahulu',
-                              ['UA', 'Drama', 'Thriller'],
+                    // Movies Horizontal List - Modified to show dynamic movie names
+                    // Consumer<MovieTicketProvider>(
+                    //   builder: (context, provider, child) {
+                    //     if (provider.isLoading) {
+                    //       return SizedBox(
+                    //         height: 280,
+                    //         child: Center(child: CircularProgressIndicator()),
+                    //       );
+                    //     }
+
+                    //     final uniqueMovieNames = _getUniqueMovieNames(
+                    //       provider.tickets,
+                    //     );
+
+                    //     // If no movies added yet, show default movies
+                    //     if (uniqueMovieNames.isEmpty) {
+                    //       return SizedBox(
+                    //         height: 280,
+                    //         child: ListView(
+                    //           scrollDirection: Axis.horizontal,
+                    //           padding: const EdgeInsets.symmetric(
+                    //             horizontal: 16.0,
+                    //           ),
+                    //           children: [
+                    //             _buildMovieCard(
+                    //               'assets/narasimha.png',
+                    //               'Mahavtar Narasimha',
+                    //               ['13+', 'Action', 'IMAX'],
+                    //             ),
+                    //             _buildMovieCard(
+                    //               'assets/veeramallu.png',
+                    //               'Veeramahulu',
+                    //               ['UA', 'Drama', 'Thriller'],
+                    //             ),
+                    //             _buildMovieCard('assets/kubera.png', 'Kubera', [
+                    //               'A',
+                    //               'Action',
+                    //               '2D',
+                    //             ]),
+                    //           ],
+                    //         ),
+                    //       );
+                    //     }
+
+                    //     // Show dynamic movie names with static images
+                    //     return SizedBox(
+                    //       height: 280,
+                    //       child: ListView.builder(
+                    //         scrollDirection: Axis.horizontal,
+                    //         padding: const EdgeInsets.symmetric(
+                    //           horizontal: 16.0,
+                    //         ),
+                    //         itemCount: uniqueMovieNames.length,
+                    //         itemBuilder: (context, index) {
+                    //           final movieName = uniqueMovieNames[index];
+                    //           // Use static images in rotation
+                    //           final imageIndex =
+                    //               index % _staticMovieImages.length;
+                    //           final imagePath = _staticMovieImages[imageIndex];
+
+                    //           // Get sample badges based on movie name or use default
+                    //           final badges = _getBadgesForMovie(movieName);
+
+                    //           return GestureDetector(
+                    //             onTap: () {
+                    //               // You can navigate to detail screen with this movie's data
+                    //               Navigator.push(
+                    //                 context,
+                    //                 MaterialPageRoute(
+                    //                   builder: (context) => DetailScreen(),
+                    //                   settings: RouteSettings(
+                    //                     arguments: movieName,
+                    //                   ),
+                    //                 ),
+                    //               );
+                    //             },
+                    //             child: _buildMovieCard(
+                    //               imagePath,
+                    //               movieName,
+                    //               badges,
+                    //             ),
+                    //           );
+                    //         },
+                    //       ),
+                    //     );
+                    //   },
+                    // ),
+
+                    // Ongoing Movies Section - Modified to show categories
+                    Consumer<MovieCategoryProvider>(
+                      builder: (context, categoryProvider, child) {
+                        if (categoryProvider.isLoading) {
+                          return SizedBox(
+                            height: 280,
+                            child: Center(child: CircularProgressIndicator()),
+                          );
+                        }
+
+                        final categories = categoryProvider.activeCategories;
+
+                        // If no categories added yet, show placeholder
+                        if (categories.isEmpty) {
+                          return SizedBox(
+                            height: 280,
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.category_outlined,
+                                    size: 48,
+                                    color: Colors.grey,
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    'No categories available',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
+                          );
+                        }
+
+                        // Show dynamic categories
+                        return SizedBox(
+                          height: 280,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16.0,
+                            ),
+                            itemCount: categories.length,
+                            itemBuilder: (context, index) {
+                              final category = categories[index];
+
+                              return GestureDetector(
+                                onTap: () {
+                                  // Navigate to category-specific movies or detail screen
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ImageDetailScreen(
+                                        movieName: category.name,
+                                        assetImagePath: category.imageUrl,
+                                        languages: category.languages
+                                            .toString(),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: _buildCategoryCard(
+                                  category.imageUrl,
+                                  category.name,
+                                  category.tags,
+                                ),
+                              );
+                            },
                           ),
-                          _buildMovieCard('assets/kubera.png', 'Kubera', [
-                            'A',
-                            'Action',
-                            '2D',
-                          ]),
-                        ],
-                      ),
+                        );
+                      },
                     ),
 
                     const SizedBox(height: 24),
 
-                    // Nearby Resale Tickets Section
+                    // Nearby Resale Tickets Section Header
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text(
                             'Nearby Resale Tickets',
@@ -766,7 +2620,12 @@ class _MovieScreenState extends State<MovieScreen> {
                           Spacer(),
                           TextButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>SeeAllScreen()));
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SeeAllScreen(),
+                                ),
+                              );
                             },
                             child: const Text(
                               'See All',
@@ -777,74 +2636,13 @@ class _MovieScreenState extends State<MovieScreen> {
                               ),
                             ),
                           ),
-                          Icon(Icons.arrow_forward_ios,size: 15,)
+                          Icon(Icons.arrow_forward_ios, size: 15),
                         ],
                       ),
                     ),
 
-                    // Resale Tickets List - Updated to use Firebase data
-                    Consumer<MovieTicketProvider>(
-                      builder: (context, provider, child) {
-                        if (provider.isLoading) {
-                          return const Center(
-                            child: Padding(
-                              padding: EdgeInsets.all(20.0),
-                              child: CircularProgressIndicator(),
-                            ),
-                          );
-                        }
-
-                        if (provider.error != null) {
-                          return Center(
-                            child: Padding(
-                              padding: const EdgeInsets.all(20.0),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'Error: ${provider.error}',
-                                    style: const TextStyle(color: Colors.red),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  const SizedBox(height: 10),
-                                  ElevatedButton(
-                                    onPressed: () => provider.fetchAllTickets(),
-                                    child: const Text('Retry'),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        }
-
-                        if (provider.tickets.isEmpty) {
-                          return const Center(
-                            child: Padding(
-                              padding: EdgeInsets.all(20.0),
-                              child: Text(
-                                'No tickets available',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ),
-                          );
-                        }
-
-                        // Display only first 4 tickets (for "See All" functionality)
-                        final ticketsToShow = provider.tickets.take(4).toList();
-
-                        return ListView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          itemCount: ticketsToShow.length,
-                          itemBuilder: (context, index) {
-                            return _buildResaleTicketCard(context, ticketsToShow[index]);
-                          },
-                        );
-                      },
-                    ),
+                    // Location-based Nearby Tickets Section
+                    _buildNearbyTicketsSection(),
 
                     const SizedBox(height: 16),
                   ],
@@ -857,14 +2655,256 @@ class _MovieScreenState extends State<MovieScreen> {
     );
   }
 
+  // Build the nearby tickets section with location filtering
+  Widget _buildNearbyTicketsSection() {
+    return Consumer<MovieTicketProvider>(
+      builder: (context, provider, child) {
+        if (provider.isLoading || _isLoadingLocation) {
+          return const Center(
+            child: Padding(
+              padding: EdgeInsets.all(20.0),
+              child: CircularProgressIndicator(),
+            ),
+          );
+        }
+
+        if (provider.error != null) {
+          return Center(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                children: [
+                  Text(
+                    'Error: ${provider.error}',
+                    style: const TextStyle(color: Colors.red),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                    onPressed: () => provider.fetchAllTickets(),
+                    child: const Text('Retry'),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+
+        // Use nearby tickets if location is available, otherwise show all tickets
+        List<MovieTicket> ticketsToShow = _userPosition != null
+            ? _nearbyTickets
+            : provider.tickets;
+
+        if (ticketsToShow.isEmpty) {
+          return Center(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                children: [
+                  Icon(
+                    _userPosition != null
+                        ? Icons.location_off
+                        : Icons.movie_outlined,
+                    size: 48,
+                    color: Colors.grey,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    _userPosition != null
+                        ? 'No tickets found within ${_maxDistanceKm.toInt()}km'
+                        : 'No tickets available',
+                    style: const TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
+                  if (_userPosition != null) ...[
+                    const SizedBox(height: 8),
+                    TextButton(
+                      onPressed: () {
+                        setState(() {
+                          _maxDistanceKm = _maxDistanceKm == 10 ? 50 : 10;
+                        });
+                        _filterNearbyTickets();
+                      },
+                      child: Text(
+                        'Search within ${_maxDistanceKm == 10 ? 50 : 10}km instead',
+                        style: const TextStyle(color: Colors.blue),
+                      ),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+          );
+        }
+
+        // Display only first 4 tickets (for "See All" functionality)
+        final displayTickets = ticketsToShow.take(4).toList();
+
+        return Column(
+          children: [
+            // Distance filter controls (optional)
+            if (_userPosition != null)
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 8.0,
+                ),
+                child: Row(
+                  children: [
+                    // const Text('Within: '),
+                    // DropdownButton<double>(
+                    //   value: _maxDistanceKm,
+                    //   items: [5.0, 10.0, 25.0, 50.0].map((distance) {
+                    //     return DropdownMenuItem(
+                    //       value: distance,
+                    //       child: Text('${distance.toInt()}km'),
+                    //     );
+                    //   }).toList(),
+                    //   onChanged: (newDistance) {
+                    //     if (newDistance != null) {
+                    //       setState(() {
+                    //         _maxDistanceKm = newDistance;
+                    //       });
+                    //       _filterNearbyTickets();
+                    //     }
+                    //   },
+                    // ),
+                    const Spacer(),
+                    // TextButton.icon(
+                    //   onPressed: _getCurrentLocation,
+                    //   icon: const Icon(Icons.location_city, size: 16),
+                    //   label: const Text('Refresh Location'),
+                    //   style: TextButton.styleFrom(
+                    //     foregroundColor: Colors.blue,
+                    //   ),
+                    // ),
+                  ],
+                ),
+              ),
+
+            // Tickets list
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              itemCount: displayTickets.length,
+              itemBuilder: (context, index) {
+                return _buildResaleTicketCard(context, displayTickets[index]);
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // Helper method to generate badges for movies
+  List<String> _getBadgesForMovie(String movieName) {
+    // You can customize this logic based on your requirements
+    // For now, returning some sample badges
+    final List<List<String>> badgeOptions = [
+      ['13+', 'Action', 'IMAX'],
+      ['UA', 'Drama', 'Thriller'],
+      ['A', 'Action', '2D'],
+      ['U', 'Comedy', 'HD'],
+      ['13+', 'Romance', 'IMAX'],
+    ];
+
+    // Use hash of movie name to consistently assign badges
+    final index = movieName.hashCode.abs() % badgeOptions.length;
+    return badgeOptions[index];
+  }
+
   Widget _buildMovieCard(String imagePath, String title, List<String> badges) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>
+                ImageDetailScreen(movieName: title, assetImagePath: imagePath),
+          ),
+        );
+      },
+      child: Container(
+        width: 160,
+        margin: const EdgeInsets.only(right: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // Movie Poster with Stack
+            Stack(
+              children: [
+                Container(
+                  height: 220,
+                  width: 160,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        spreadRadius: 1,
+                        blurRadius: 8,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(
+                      imagePath,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          color: Colors.grey[300],
+                          child: const Icon(
+                            Icons.movie,
+                            size: 40,
+                            color: Colors.grey,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 8),
+
+            // Movie Title
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: Colors.black87,
+              ),
+              maxLines: 2,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+            ),
+
+            const SizedBox(height: 6),
+
+            // Badges Row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: badges.map((badge) => _buildBadge(badge)).toList(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCategoryCard(String imageUrl, String title, List<String> tags) {
     return Container(
       width: 160,
       margin: const EdgeInsets.only(right: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Movie Poster with Stack
+          // Category Image with Stack
           Stack(
             children: [
               Container(
@@ -883,9 +2923,20 @@ class _MovieScreenState extends State<MovieScreen> {
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    imagePath,
+                  child: Image.network(
+                    imageUrl,
                     fit: BoxFit.cover,
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return Center(
+                        child: CircularProgressIndicator(
+                          value: loadingProgress.expectedTotalBytes != null
+                              ? loadingProgress.cumulativeBytesLoaded /
+                                    loadingProgress.expectedTotalBytes!
+                              : null,
+                        ),
+                      );
+                    },
                     errorBuilder: (context, error, stackTrace) {
                       return Container(
                         color: Colors.grey[300],
@@ -904,7 +2955,7 @@ class _MovieScreenState extends State<MovieScreen> {
 
           const SizedBox(height: 8),
 
-          // Movie Title
+          // Category Title
           Text(
             title,
             style: const TextStyle(
@@ -919,10 +2970,10 @@ class _MovieScreenState extends State<MovieScreen> {
 
           const SizedBox(height: 6),
 
-          // Badges Row
+          // Tags Row - Show first 3 tags
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: badges.map((badge) => _buildBadge(badge)).toList(),
+            children: tags.take(3).map((tag) => _buildBadge(tag)).toList(),
           ),
         ],
       ),
@@ -937,15 +2988,19 @@ class _MovieScreenState extends State<MovieScreen> {
       case '13+':
       case 'UA':
       case 'A':
+      case 'U':
         backgroundColor = Colors.grey[700]!;
         break;
       case 'Action':
       case 'Drama':
       case 'Thriller':
+      case 'Comedy':
+      case 'Romance':
         backgroundColor = Colors.grey[600]!;
         break;
       case 'IMAX':
       case '2D':
+      case 'HD':
         backgroundColor = Colors.grey[600]!;
         break;
       default:
@@ -974,7 +3029,7 @@ class _MovieScreenState extends State<MovieScreen> {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-          context, 
+          context,
           MaterialPageRoute(
             builder: (context) => NearbyTickets(),
             settings: RouteSettings(arguments: ticket), // Pass ticket data
@@ -1009,7 +3064,9 @@ class _MovieScreenState extends State<MovieScreen> {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(6),
-                child: ticket.ticketImageUrl != null && ticket.ticketImageUrl!.isNotEmpty
+                child:
+                    ticket.ticketImageUrl != null &&
+                        ticket.ticketImageUrl!.isNotEmpty
                     ? Image.network(
                         ticket.ticketImageUrl!,
                         fit: BoxFit.cover,
@@ -1019,7 +3076,7 @@ class _MovieScreenState extends State<MovieScreen> {
                             child: CircularProgressIndicator(
                               value: loadingProgress.expectedTotalBytes != null
                                   ? loadingProgress.cumulativeBytesLoaded /
-                                      loadingProgress.expectedTotalBytes!
+                                        loadingProgress.expectedTotalBytes!
                                   : null,
                             ),
                           );
@@ -1063,41 +3120,47 @@ class _MovieScreenState extends State<MovieScreen> {
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 4),
-                  // Text(
-                  //   '${ticket.language} • ${ticket.format ?? '2D'}',
-                  //   style: const TextStyle(fontSize: 12, color: Colors.grey),
-                  // ),
-                  const SizedBox(height: 4),
 
+                  Text(
+                    '${ticket.theatrePlace}',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Color.fromARGB(255, 40, 40, 40),
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                   Text(
                     '${_formatDate(ticket.showDate)} ${ticket.showTime}',
                     style: const TextStyle(fontSize: 14, color: Colors.black),
                   ),
                   const SizedBox(height: 2),
-                  Text(
-                    '${ticket.theatrePlace}',
-                    style: const TextStyle(fontSize: 12, color: Color.fromARGB(255, 75, 75, 75)),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+
+                  // Add distance info
+                  if (_userPosition != null &&
+                      ticket.latitude != null &&
+                      ticket.longitude != null) ...[
+                    const SizedBox(height: 2),
+                    Row(
+                      children: [
+                        // const Icon(
+                        //   Icons.location_on,
+                        //   size: 12,
+                        //   color: Colors.green,
+                        // ),
+                        const SizedBox(width: 2),
+                        // Text(
+                        //   _getDistanceText(ticket),
+                        //   style: const TextStyle(
+                        //     fontSize: 11,
+                        //     color: Colors.green,
+                        //     fontWeight: FontWeight.w500,
+                        //   ),
+                        // ),
+                      ],
+                    ),
+                  ],
                   const SizedBox(height: 8),
-                  
-                  // Status indicator
-                  // Container(
-                  //   padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                  //   decoration: BoxDecoration(
-                  //     color: _getStatusColor(ticket.status),
-                  //     borderRadius: BorderRadius.circular(4),
-                  //   ),
-                  //   child: Text(
-                  //     ticket.status.toUpperCase(),
-                  //     style: const TextStyle(
-                  //       color: Colors.white,
-                  //       fontSize: 10,
-                  //       fontWeight: FontWeight.w500,
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ),
@@ -1115,15 +3178,6 @@ class _MovieScreenState extends State<MovieScreen> {
                   ),
                 ),
                 const SizedBox(height: 4),
-                // if (ticket.originalPrice != ticket.resalePrice)
-                //   Text(
-                //     '₹${ticket.originalPrice.toStringAsFixed(0)}',
-                //     style: const TextStyle(
-                //       fontSize: 12,
-                //       color: Colors.grey,
-                //       decoration: TextDecoration.lineThrough,
-                //     ),
-                //   ),
               ],
             ),
           ],
@@ -1135,23 +3189,19 @@ class _MovieScreenState extends State<MovieScreen> {
   // Helper method to format date
   String _formatDate(DateTime date) {
     const months = [
-      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
     ];
     return '${date.day} ${months[date.month - 1]}';
-  }
-
-  // Helper method to get status color
-  Color _getStatusColor(String status) {
-    switch (status.toLowerCase()) {
-      case 'available':
-        return Colors.green;
-      case 'sold':
-        return Colors.red;
-      case 'pending':
-        return Colors.orange;
-      default:
-        return Colors.grey;
-    }
   }
 }

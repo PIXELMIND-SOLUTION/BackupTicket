@@ -1,6 +1,7 @@
+import 'package:backup_ticket/helper/auth_helper.dart';
+import 'package:backup_ticket/views/navbar/navbar_screen.dart';
 import 'package:backup_ticket/views/splash/movie_ticket_screen.dart';
 import 'package:flutter/material.dart';
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -77,17 +78,45 @@ class _SplashScreenState extends State<SplashScreen>
     await Future.delayed(const Duration(milliseconds: 100));
     _slideController.forward();
     
-    // Navigate to next screen after animations complete
+    // Wait for animations to complete
     await Future.delayed(const Duration(milliseconds: 2000));
+    
+    // Check login status and navigate accordingly
     if (mounted) {
+      await _checkLoginAndNavigate();
+    }
+  }
 
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const MovieTicketsScreen(),
-        ),
-      );
-      // Replace with your navigation logic
-      // Navigator.of(context).pushReplacement(...);
+  Future<void> _checkLoginAndNavigate() async {
+    try {
+      final isLoggedIn = await UserPreferences.isLoggedIn();
+      
+      if (mounted) {
+        if (isLoggedIn) {
+          // User is logged in, navigate to navbar screen
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => const NavbarScreen(), // Replace with your actual navbar screen
+            ),
+          );
+        } else {
+          // User is not logged in, navigate to movie ticket screen
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => const MovieTicketsScreen(),
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      // Handle any errors by navigating to movie ticket screen as fallback
+      if (mounted) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const MovieTicketsScreen(),
+          ),
+        );
+      }
     }
   }
 
@@ -160,8 +189,7 @@ class _SplashScreenState extends State<SplashScreen>
               
               const SizedBox(height: 40),
               
-              // Animated App Name
-             
+              // You can add animated app name here if needed
               
               const SizedBox(height: 60),
               

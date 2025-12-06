@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 
 class BusTicketPopupWidget extends StatelessWidget {
@@ -18,7 +20,7 @@ class BusTicketPopupWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             // Smiley face icon
-            Image.asset('assets/busticketimage.png',width:   120,height: 120,),
+            Image.asset('assets/busticketimage.png',width:   123,height: 123,),
             
             const SizedBox(height: 24),
             
@@ -62,7 +64,7 @@ class BusTicketPopupWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
                     Icon(
-                      Icons.download,
+                      Icons.save_alt,
                       color: Colors.white,
                       size: 20,
                     ),
@@ -84,11 +86,12 @@ class BusTicketPopupWidget extends StatelessWidget {
               width: 300,
               decoration: BoxDecoration(
                 border: Border.all(
+                  width: 2,
                   color: Colors.orange
                 ),
                 borderRadius: BorderRadius.circular(8)
               ),
-              child: Text(' Note: You will recieve the bus and\n driver information shortly. ',style: TextStyle(fontWeight: FontWeight.w400),),
+              child: Text(' Note: You will recieve the Bus and\n driver information shortly. ',style: TextStyle(fontWeight: FontWeight.w400),),
             )
           ],
         ),

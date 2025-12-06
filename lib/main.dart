@@ -25,6 +25,7 @@
 
 import 'package:backup_ticket/provider/auth/auth_provider.dart';
 import 'package:backup_ticket/provider/auth/user_profile_provider.dart';
+import 'package:backup_ticket/provider/movie/movie_category_provider.dart';
 import 'package:backup_ticket/provider/navbar/navbar_provider.dart';
 import 'package:backup_ticket/provider/selltickets/sell_bus_ticket_provider.dart';
 import 'package:backup_ticket/provider/selltickets/sell_movie_ticket_provider.dart';
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => MovieTicketProvider()),
         ChangeNotifierProvider(create: (context) => UserProfileProvider()),
         ChangeNotifierProvider(create: (context) => BusTicketProvider()),
+        ChangeNotifierProvider(create: (context) => MovieCategoryProvider()),
       ],
       child: MaterialApp(
         title: 'Backup Ticket',

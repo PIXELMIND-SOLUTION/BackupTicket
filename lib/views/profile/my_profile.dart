@@ -1,129 +1,4 @@
-// // import 'package:flutter/material.dart';
-
-// // class MyProfile extends StatelessWidget {
-// //   const MyProfile({super.key});
-
-// //   @override
-// //   Widget build(BuildContext context) {
-// //     return Scaffold(
-// //       appBar: AppBar(
-// //         backgroundColor: Colors.white,
-// //         elevation: 0,
-// //         leading: IconButton(
-// //           icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
-// //           onPressed: () {
-// //             Navigator.of(context).pop();
-// //           },
-// //         ),
-// //         centerTitle: true,
-// //         title:  Text(
-// //           'My Profile',
-// //           style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
-// //         ),
-// //       ),
-// //       body: SingleChildScrollView(
-// //         child: Padding(
-// //           padding: const EdgeInsets.symmetric(horizontal: 16),
-// //           child: Column(
-// //             children: [
-// //               const SizedBox(height: 20),
-// //               Center(
-// //                 child: Container(
-// //                   width: 100,
-// //                   height: 100,
-// //                   decoration: BoxDecoration(
-// //                     borderRadius: BorderRadius.circular(12), // Rounded corners for the square
-// //                     image: const DecorationImage(
-// //                       image: AssetImage('assets/profileimage.png'),
-// //                       fit: BoxFit.cover,
-// //                     ),
-// //                   ),
-// //                 ),
-// //               ),
-// //               const SizedBox(height: 20),
-// //               // Full Name
-// //               TextFormField(
-// //                 initialValue: 'PMS',
-// //                 decoration: const InputDecoration(
-// //                   labelText: 'Full Name',
-// //                   border: OutlineInputBorder(),
-// //                 ),
-// //               ),
-// //               const SizedBox(height: 16),
-// //               // Phone Number
-// //               TextFormField(
-// //                 initialValue: '+6265165165',
-// //                 decoration: const InputDecoration(
-// //                   labelText: 'Phone Number',
-// //                   border: OutlineInputBorder(),
-// //                 ),
-// //                 keyboardType: TextInputType.phone,
-// //               ),
-// //               const SizedBox(height: 16),
-// //               // Email
-// //               TextFormField(
-// //                 initialValue: 'Manojkumar@gmail.com',
-// //                 decoration: const InputDecoration(
-// //                   labelText: 'Email',
-// //                   border: OutlineInputBorder(),
-// //                 ),
-// //                 keyboardType: TextInputType.emailAddress,
-// //               ),
-// //               const SizedBox(height: 250),
-// //               // Save Button
-// //               SizedBox(
-// //                 width: double.infinity,
-// //                 height: 48,
-// //                 child: ElevatedButton(
-// //                   onPressed: () {},
-// //                   style: ButtonStyle(
-// //                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
-// //                         borderRadius: BorderRadius.circular(8))),
-// //                     padding:
-// //                         MaterialStateProperty.all(const EdgeInsets.all(0)),
-// //                     backgroundColor: MaterialStateProperty.all(Colors.transparent),
-// //                     elevation: MaterialStateProperty.all(0),
-// //                   ),
-// //                   child: Ink(
-// //                     decoration: BoxDecoration(
-// //                       gradient: const LinearGradient(
-// //                         colors: [Color(0xFF214194), Color(0xFF4C7EFF)],
-// //                       ),
-// //                       borderRadius: BorderRadius.circular(8),
-// //                     ),
-// //                     child: Container(
-// //                       alignment: Alignment.center,
-// //                       child: const Text(
-// //                         'Save',
-// //                         style: TextStyle(fontSize: 16, color: Colors.white),
-// //                       ),
-// //                     ),
-// //                   ),
-// //                 ),
-// //               ),
-// //               const SizedBox(height: 20),
-// //             ],
-// //           ),
-// //         ),
-// //       ),
-// //     );
-// //   }
-// // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// // ignore_for_file: deprecated_member_use
 
 // import 'package:backup_ticket/helper/auth_helper.dart';
 // import 'package:backup_ticket/provider/auth/user_profile_provider.dart';
@@ -169,21 +44,27 @@
 //           await profileProvider.loadUserProfile(userId);
           
 //           // Update controllers with loaded data
-//           if (profileProvider.name != null) {
+//           if (profileProvider.name != null && profileProvider.name!.isNotEmpty) {
 //             _nameController.text = profileProvider.name!;
+//             print('Loaded name: ${profileProvider.name}'); // Debug print
 //           }
-//           if (profileProvider.phoneNumber != null) {
+//           if (profileProvider.phoneNumber != null && profileProvider.phoneNumber!.isNotEmpty) {
 //             _phoneController.text = profileProvider.phoneNumber!;
+//             print('Loaded phone: ${profileProvider.phoneNumber}'); // Debug print
 //           }
-//           if (profileProvider.email != null) {
+//           if (profileProvider.email != null && profileProvider.email!.isNotEmpty) {
 //             _emailController.text = profileProvider.email!;
+//             print('Loaded email: ${profileProvider.email}'); // Debug print
 //           }
 //         }
 //       } else {
+//         print('No userId found, loading from SharedPreferences'); // Debug print
 //         // Fallback to SharedPreferences data if no userId
 //         String? name = await UserPreferences.getName();
 //         String? phone = await UserPreferences.getMobileNumber();
 //         String? email = await UserPreferences.getEmail();
+
+//         print('SharedPreferences - Name: $name, Phone: $phone, Email: $email'); // Debug print
 
 //         if (mounted) {
 //           _nameController.text = name ?? '';
@@ -192,6 +73,7 @@
 //         }
 //       }
 //     } catch (e) {
+//       print('Error in _loadUserProfile: $e');
 //       if (mounted) {
 //         ScaffoldMessenger.of(context).showSnackBar(
 //           SnackBar(
@@ -479,11 +361,20 @@
 
 
 
+
+
+
+
+// ignore_for_file: deprecated_member_use
+
+import 'dart:io';
 import 'package:backup_ticket/helper/auth_helper.dart';
 import 'package:backup_ticket/provider/auth/user_profile_provider.dart';
+import 'package:backup_ticket/services/cloudinary_image_services.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-
 
 class MyProfile extends StatefulWidget {
   const MyProfile({super.key});
@@ -497,6 +388,12 @@ class _MyProfileState extends State<MyProfile> {
   final _nameController = TextEditingController();
   final _phoneController = TextEditingController();
   final _emailController = TextEditingController();
+  final ImagePicker _picker = ImagePicker();
+  
+  File? _selectedImageFile;
+  Uint8List? _selectedImageBytes;
+  String? _currentProfileImageUrl;
+  bool _isUploadingImage = false;
 
   @override
   void initState() {
@@ -514,7 +411,6 @@ class _MyProfileState extends State<MyProfile> {
 
   Future<void> _loadUserProfile() async {
     try {
-      // Get userId from SharedPreferences
       String? userId = await UserPreferences.getUserId();
       
       if (userId != null && userId.isNotEmpty) {
@@ -522,28 +418,25 @@ class _MyProfileState extends State<MyProfile> {
           final profileProvider = Provider.of<UserProfileProvider>(context, listen: false);
           await profileProvider.loadUserProfile(userId);
           
-          // Update controllers with loaded data
           if (profileProvider.name != null && profileProvider.name!.isNotEmpty) {
             _nameController.text = profileProvider.name!;
-            print('Loaded name: ${profileProvider.name}'); // Debug print
           }
           if (profileProvider.phoneNumber != null && profileProvider.phoneNumber!.isNotEmpty) {
             _phoneController.text = profileProvider.phoneNumber!;
-            print('Loaded phone: ${profileProvider.phoneNumber}'); // Debug print
           }
           if (profileProvider.email != null && profileProvider.email!.isNotEmpty) {
             _emailController.text = profileProvider.email!;
-            print('Loaded email: ${profileProvider.email}'); // Debug print
+          }
+          if (profileProvider.profileImageUrl != null && profileProvider.profileImageUrl!.isNotEmpty) {
+            setState(() {
+              _currentProfileImageUrl = profileProvider.profileImageUrl;
+            });
           }
         }
       } else {
-        print('No userId found, loading from SharedPreferences'); // Debug print
-        // Fallback to SharedPreferences data if no userId
         String? name = await UserPreferences.getName();
         String? phone = await UserPreferences.getMobileNumber();
         String? email = await UserPreferences.getEmail();
-
-        print('SharedPreferences - Name: $name, Phone: $phone, Email: $email'); // Debug print
 
         if (mounted) {
           _nameController.text = name ?? '';
@@ -552,7 +445,7 @@ class _MyProfileState extends State<MyProfile> {
         }
       }
     } catch (e) {
-      print('Error in _loadUserProfile: $e'); // Debug print
+      print('Error in _loadUserProfile: $e');
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -564,11 +457,107 @@ class _MyProfileState extends State<MyProfile> {
     }
   }
 
+  Future<void> _pickImage() async {
+    try {
+      final XFile? pickedFile = await _picker.pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 1024,
+        maxHeight: 1024,
+        imageQuality: 85,
+      );
+
+      if (pickedFile != null) {
+        if (kIsWeb) {
+          // For web platform
+          final bytes = await pickedFile.readAsBytes();
+          setState(() {
+            _selectedImageBytes = bytes;
+            _selectedImageFile = null;
+          });
+        } else {
+          // For mobile/desktop
+          setState(() {
+            _selectedImageFile = File(pickedFile.path);
+            _selectedImageBytes = null;
+          });
+        }
+      }
+    } catch (e) {
+      print('Error picking image: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error selecting image: ${e.toString()}'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
+  }
+
+  Future<String?> _uploadImageToCloudinary() async {
+    try {
+      setState(() {
+        _isUploadingImage = true;
+      });
+
+      String? uploadedUrl;
+
+      if (kIsWeb && _selectedImageBytes != null) {
+        // Upload for web
+        uploadedUrl = await CloudinaryService.uploadImageFromBytes(
+          _selectedImageBytes!,
+          'profile_${DateTime.now().millisecondsSinceEpoch}.jpg',
+        );
+      } else if (_selectedImageFile != null) {
+        // Upload for mobile/desktop
+        uploadedUrl = await CloudinaryService.uploadImage(_selectedImageFile!);
+      }
+
+      setState(() {
+        _isUploadingImage = false;
+      });
+
+      return uploadedUrl;
+    } catch (e) {
+      setState(() {
+        _isUploadingImage = false;
+      });
+      print('Error uploading image: $e');
+      return null;
+    }
+  }
+
   Future<void> _handleSave() async {
     if (_formKey.currentState!.validate()) {
       try {
         final profileProvider = Provider.of<UserProfileProvider>(context, listen: false);
         String? userId = await UserPreferences.getUserId();
+        String? profileImageUrl = _currentProfileImageUrl;
+
+        // Upload new image if selected
+        if (_selectedImageFile != null || _selectedImageBytes != null) {
+          final uploadedUrl = await _uploadImageToCloudinary();
+          if (uploadedUrl != null) {
+            profileImageUrl = uploadedUrl;
+            
+            // Delete old image from Cloudinary if exists
+            if (_currentProfileImageUrl != null && 
+                _currentProfileImageUrl!.isNotEmpty &&
+                _currentProfileImageUrl != uploadedUrl) {
+              await CloudinaryService.deleteImage(_currentProfileImageUrl!);
+            }
+          } else {
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Failed to upload image. Profile will be saved without new image.'),
+                  backgroundColor: Colors.orange,
+                ),
+              );
+            }
+          }
+        }
 
         if (userId != null && userId.isNotEmpty) {
           // Update existing profile
@@ -577,15 +566,17 @@ class _MyProfileState extends State<MyProfile> {
             name: _nameController.text.trim(),
             phoneNumber: _phoneController.text.trim(),
             email: _emailController.text.trim(),
+            profileImageUrl: profileImageUrl,
           );
         } else {
-          // Create new profile with timestamp as userId
+          // Create new profile
           userId = DateTime.now().millisecondsSinceEpoch.toString();
           await profileProvider.saveUserProfile(
             userId: userId,
             name: _nameController.text.trim(),
             phoneNumber: _phoneController.text.trim(),
             email: _emailController.text.trim(),
+            profileImageUrl: profileImageUrl,
           );
         }
 
@@ -596,6 +587,13 @@ class _MyProfileState extends State<MyProfile> {
           mobileNumber: _phoneController.text.trim(),
           email: _emailController.text.trim(),
         );
+
+        // Clear selected image after successful save
+        setState(() {
+          _selectedImageFile = null;
+          _selectedImageBytes = null;
+          _currentProfileImageUrl = profileImageUrl;
+        });
 
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -618,6 +616,99 @@ class _MyProfileState extends State<MyProfile> {
     }
   }
 
+  Widget _buildProfileImage() {
+    return Stack(
+      children: [
+        Container(
+          width: 100,
+          height: 100,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: Colors.grey.shade300, width: 2),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: _buildImageWidget(),
+          ),
+        ),
+        Positioned(
+          bottom: 0,
+          right: 0,
+          child: GestureDetector(
+            onTap: _isUploadingImage ? null : _pickImage,
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: const Color(0xFF214194),
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.white, width: 2),
+              ),
+              child: _isUploadingImage
+                  ? const SizedBox(
+                      width: 16,
+                      height: 16,
+                      child: CircularProgressIndicator(
+                        color: Colors.white,
+                        strokeWidth: 2,
+                      ),
+                    )
+                  : const Icon(
+                      Icons.camera_alt,
+                      color: Colors.white,
+                      size: 16,
+                    ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildImageWidget() {
+    // Show selected image (priority)
+    if (_selectedImageBytes != null) {
+      return Image.memory(
+        _selectedImageBytes!,
+        fit: BoxFit.cover,
+      );
+    } else if (_selectedImageFile != null) {
+      return Image.file(
+        _selectedImageFile!,
+        fit: BoxFit.cover,
+      );
+    }
+    // Show current profile image
+    else if (_currentProfileImageUrl != null && _currentProfileImageUrl!.isNotEmpty) {
+      return Image.network(
+        _currentProfileImageUrl!,
+        fit: BoxFit.cover,
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) return child;
+          return Center(
+            child: CircularProgressIndicator(
+              value: loadingProgress.expectedTotalBytes != null
+                  ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
+                  : null,
+            ),
+          );
+        },
+        errorBuilder: (context, error, stackTrace) {
+          return Image.asset(
+            'assets/profileimage.png',
+            fit: BoxFit.cover,
+          );
+        },
+      );
+    }
+    // Show default image
+    else {
+      return Image.asset(
+        'assets/profileimage.png',
+        fit: BoxFit.cover,
+      );
+    }
+  }
+
   String? _validateName(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Please enter your name';
@@ -632,7 +723,6 @@ class _MyProfileState extends State<MyProfile> {
     if (value == null || value.trim().isEmpty) {
       return 'Please enter your mobile number';
     }
-    // Remove +91 prefix if present for validation
     String phoneNumber = value.trim().replaceFirst('+91', '');
     if (phoneNumber.length != 10) {
       return 'Please enter a valid 10-digit mobile number';
@@ -682,22 +772,9 @@ class _MyProfileState extends State<MyProfile> {
                 child: Column(
                   children: [
                     const SizedBox(height: 20),
-                    Center(
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          image: const DecorationImage(
-                            image: AssetImage('assets/profileimage.png'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
+                    Center(child: _buildProfileImage()),
                     const SizedBox(height: 20),
 
-                    // Show loading indicator
                     if (profileProvider.isLoading) ...[
                       const Center(
                         child: CircularProgressIndicator(),
@@ -705,7 +782,6 @@ class _MyProfileState extends State<MyProfile> {
                       const SizedBox(height: 20),
                     ],
 
-                    // Show error message if any
                     if (profileProvider.errorMessage != null) ...[
                       Container(
                         width: double.infinity,
@@ -739,7 +815,6 @@ class _MyProfileState extends State<MyProfile> {
                       const SizedBox(height: 20),
                     ],
 
-                    // Full Name
                     TextFormField(
                       controller: _nameController,
                       validator: _validateName,
@@ -751,7 +826,6 @@ class _MyProfileState extends State<MyProfile> {
                     ),
                     const SizedBox(height: 16),
 
-                    // Phone Number
                     TextFormField(
                       controller: _phoneController,
                       validator: _validatePhone,
@@ -764,7 +838,6 @@ class _MyProfileState extends State<MyProfile> {
                     ),
                     const SizedBox(height: 16),
 
-                    // Email
                     TextFormField(
                       controller: _emailController,
                       validator: _validateEmail,
@@ -777,12 +850,13 @@ class _MyProfileState extends State<MyProfile> {
                     ),
                     const SizedBox(height: 250),
 
-                    // Save Button
                     SizedBox(
                       width: double.infinity,
                       height: 48,
                       child: ElevatedButton(
-                        onPressed: profileProvider.isUpdating ? null : _handleSave,
+                        onPressed: (profileProvider.isUpdating || _isUploadingImage) 
+                            ? null 
+                            : _handleSave,
                         style: ButtonStyle(
                           shape: MaterialStateProperty.all(RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8))),
@@ -793,7 +867,7 @@ class _MyProfileState extends State<MyProfile> {
                         child: Ink(
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              colors: profileProvider.isUpdating
+                              colors: (profileProvider.isUpdating || _isUploadingImage)
                                   ? [Colors.grey.shade400, Colors.grey.shade500]
                                   : [const Color(0xFF214194), const Color(0xFF4C7EFF)],
                             ),
@@ -801,7 +875,7 @@ class _MyProfileState extends State<MyProfile> {
                           ),
                           child: Container(
                             alignment: Alignment.center,
-                            child: profileProvider.isUpdating
+                            child: (profileProvider.isUpdating || _isUploadingImage)
                                 ? const SizedBox(
                                     height: 20,
                                     width: 20,

@@ -171,6 +171,7 @@ Future<void> saveUserWithoutAuth({
       name: name,
       email: email,
       mobileNumber: phoneNumber,
+       locations: [],
     );
 
     // Save to Firestore
@@ -327,47 +328,7 @@ Future<bool> loginWithPhoneNumber(String phoneNumber) async {
       }
     }
   }
-
-  // Sign in with Google
-  // Future<void> signInWithGoogle() async {
-  //   try {
-  //     _setLoading(true);
-  //     _clearError();
-
-  //     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-      
-  //     if (googleUser == null) {
-  //       _setLoading(false);
-  //       return; // User cancelled
-  //     }
-
-  //     final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-
-  //     // final credential = GoogleAuthProvider.credential(
-  //     //   accessToken: googleAuth.accessToken,
-  //     //   idToken: googleAuth.idToken,
-  //     // );
-
-  //     UserCredential userCredential = await _firebaseAuth.signInWithCredential(credential);
-
-  //     // If this is a new user, save basic data
-  //     if (userCredential.additionalUserInfo?.isNewUser == true) {
-  //       await _saveNewUserData(
-  //         userCredential.user!,
-  //         userCredential.user!.displayName ?? '',
-  //         userCredential.user!.email ?? '',
-  //         '', // No phone number from Google sign-in
-  //       );
-  //     }
-
-  //   } catch (e) {
-  //     _setError('Google sign-in failed: ${e.toString()}');
-  //   } finally {
-  //     _setLoading(false);
-  //   }
-  // }
-
-  // Sign out
+// Sign out
   Future<void> signOut() async {
     try {
       _setLoading(true);
@@ -389,6 +350,7 @@ Future<bool> loginWithPhoneNumber(String phoneNumber) async {
     required String name,
     required String email,
     required String mobileNumber,
+    List<Location>? locations,
   }) async {
     try {
       _setLoading(true);
@@ -407,6 +369,7 @@ Future<bool> loginWithPhoneNumber(String phoneNumber) async {
         name: name,
         email: email,
         mobileNumber: mobileNumber,
+        locations: locations ?? _currentUserData?.locations ?? [],
       );
 
       // Update in Firestore
@@ -491,6 +454,7 @@ Future<bool> loginWithPhoneNumber(String phoneNumber) async {
       name: name,
       email: email,
       mobileNumber: phoneNumber,
+      locations: [],
     );
 
     await _saveUserToFirestore(userModel);
@@ -524,6 +488,7 @@ Future<bool> loginWithPhoneNumber(String phoneNumber) async {
         name: name,
         email: email ?? '',
         mobileNumber: mobileNumber ?? '',
+        locations: [],
       );
     }
     return null;

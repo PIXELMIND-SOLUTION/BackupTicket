@@ -121,46 +121,6 @@ class AuthServices {
       throw Exception('OTP verification failed: ${e.toString()}');
     }
   }
-
-  // Sign in with Google
-  // Future<UserCredential?> signInWithGoogle() async {
-  //   try {
-  //     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-      
-  //     if (googleUser == null) {
-  //       return null; // User cancelled the sign-in
-  //     }
-
-  //     final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-
-  //     final credential = GoogleAuthProvider.credential(
-  //       accessToken: googleAuth.accessToken,
-  //       idToken: googleAuth.idToken,
-  //     );
-
-  //     UserCredential userCredential = await _firebaseAuth.signInWithCredential(credential);
-
-  //     // Check if this is a new user
-  //     if (userCredential.additionalUserInfo?.isNewUser == true) {
-  //       // For Google sign-in, we have limited info, so save what we can
-  //       await _saveNewUserData(
-  //         userCredential.user!,
-  //         userCredential.user!.displayName ?? '',
-  //         userCredential.user!.email ?? '',
-  //         '', // No phone number from Google sign-in
-  //       );
-  //     } else {
-  //       // Existing user, fetch and save data locally
-  //       await _fetchAndSaveUserData(userCredential.user!.uid);
-  //     }
-
-  //     return userCredential;
-  //   } catch (e) {
-  //     throw Exception('Google sign-in failed: ${e.toString()}');
-  //   }
-  // }
-
-  // Check if phone number is already registered
   Future<bool> isPhoneNumberRegistered(String phoneNumber) async {
     try {
       QuerySnapshot query = await _firestore
@@ -204,6 +164,7 @@ class AuthServices {
     required String name,
     required String email,
     required String mobileNumber,
+    List<Location>? locations,
   }) async {
     try {
       User? user = _firebaseAuth.currentUser;
@@ -217,6 +178,8 @@ class AuthServices {
           name: name,
           email: email,
           mobileNumber: mobileNumber,
+           locations: locations ?? [],
+          
         );
 
         // Update in Firestore
@@ -285,6 +248,7 @@ class AuthServices {
         name: name,
         email: email ?? '',
         mobileNumber: mobileNumber ?? '',
+        locations: [],
       );
     }
     return null;
@@ -299,6 +263,7 @@ class AuthServices {
       name: name,
       email: email,
       mobileNumber: phoneNumber,
+      locations: [],
     );
 
     // Save to Firestore

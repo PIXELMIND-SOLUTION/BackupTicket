@@ -1,3 +1,4 @@
+import 'package:backup_ticket/views/busdetails/bus_details_screen.dart';
 import 'package:flutter/material.dart';
 
 class TicketDetailScreen extends StatelessWidget {
@@ -89,14 +90,30 @@ class TicketDetailScreen extends StatelessWidget {
       ),
 
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 90),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: Icon(Icons.arrow_back_ios),
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.all(50.0),
             child: ClipPath(
               clipper: TicketClipper(),
               child: Container(
-                height: 450,
+                height: 390,
                 width: 280,
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
@@ -105,7 +122,7 @@ class TicketDetailScreen extends StatelessWidget {
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  children: const [
+                  children: [
                     Text(
                       "BUS TICKET",
                       style: TextStyle(
@@ -116,26 +133,83 @@ class TicketDetailScreen extends StatelessWidget {
                     SizedBox(height: 20),
                     Icon(Icons.directions_bus, size: 80),
                     SizedBox(height: 20),
-                    Text("DATE: 20 MAY 2025"),
-                    Text("DEPARTURE TIME: 10:30 PM"),
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(color: Colors.black, fontSize: 13),
+                        children: [
+                          TextSpan(text: "DATE: "),
+                          TextSpan(
+                            text: "20 MAY 2025",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(color: Colors.black, fontSize: 13),
+                        children: [
+                          TextSpan(text: "DEPARTURE TIME: "),
+                          TextSpan(
+                            text: "10:30 PM",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+
                     SizedBox(height: 15),
 
-                    Text("SEAT: 23A"),
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(color: Colors.black, fontSize: 13),
+                        children: [
+                          TextSpan(text: "SEAT: "),
+                          TextSpan(
+                            text: "23A",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+
                     SizedBox(height: 10),
+
                     Row(
                       children: [
-                        SizedBox(width: 30),
-                        Text(
-                          "Boarding at: Kukatpally\n                      Hyderabad",
+                        const SizedBox(width: 30),
+                        RichText(
+                          text: const TextSpan(
+                            style: TextStyle(color: Colors.black, fontSize: 16),
+                            children: [
+                              TextSpan(text: "Boarding at: "),
+                              TextSpan(
+                                text:
+                                    "Kukatpally\n                      Hyderabad",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
+
                     Row(
                       children: [
-                        SizedBox(width: 30),
-
-                        Text(
-                          "Destination: Kakinada\n                      Gandhi nagar",
+                        const SizedBox(width: 30),
+                        RichText(
+                          text: const TextSpan(
+                            style: TextStyle(color: Colors.black, fontSize: 16),
+                            children: [
+                              TextSpan(text: "Destination: "),
+                              TextSpan(
+                                text:
+                                    "Kakinada\n                      Gandhi nagar",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -148,36 +222,4 @@ class TicketDetailScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-/// Custom clipper for left & right curve
-class TicketClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    const radius = 20.0;
-    Path path = Path();
-
-    path.moveTo(0, 0);
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height / 2 - radius);
-    path.arcToPoint(
-      Offset(size.width, size.height / 2 + radius),
-      radius: const Radius.circular(radius),
-      clockwise: false,
-    );
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-    path.lineTo(0, size.height / 2 + radius);
-    path.arcToPoint(
-      Offset(0, size.height / 2 - radius),
-      radius: const Radius.circular(radius),
-      clockwise: false,
-    );
-    path.lineTo(0, 0);
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(TicketClipper oldClipper) => false;
 }
