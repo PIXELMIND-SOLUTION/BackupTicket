@@ -641,10 +641,27 @@ class _BusDetailsScreenState extends State<BusDetailsScreen> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  String? _userName;
+  String? _userEmail;
+  String? _userMobile;
+
+  Future<void> _loadUserDetails() async {
+    final name = await UserPreferences.getName();
+    final email = await UserPreferences.getEmail();
+    final mobile = await UserPreferences.getMobileNumber();
+
+    setState(() {
+      _userName = name;
+      _userEmail = email;
+      _userMobile = mobile;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
     _initializeRazorpay();
+    _loadUserDetails();
   }
 
   void _initializeRazorpay() {
@@ -714,6 +731,138 @@ class _BusDetailsScreenState extends State<BusDetailsScreen> {
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('External Wallet: ${response.walletName}')),
+    );
+  }
+
+  Widget _buildContactAndPassengerSection() {
+    final ticketCount = int.tryParse(widget.nooftickets ?? '1') ?? 1;
+
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.15),
+            spreadRadius: 1,
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Contact Details Section
+          const Text(
+            'Contact Details',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.black87,
+            ),
+          ),
+          const SizedBox(height: 12),
+          _buildDetailRow(
+            Icons.person_outline,
+            'Name',
+            _userName ?? 'Loading...',
+          ),
+          const SizedBox(height: 8),
+          _buildDetailRow(
+            Icons.email_outlined,
+            'Email',
+            _userEmail ?? 'Loading...',
+          ),
+          const SizedBox(height: 8),
+          _buildDetailRow(
+            Icons.phone_outlined,
+            'Mobile',
+            _userMobile ?? 'Loading...',
+          ),
+
+          const SizedBox(height: 20),
+
+          // Passenger Details Section
+          const Text(
+            'Passenger Details',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.black87,
+            ),
+          ),
+          const SizedBox(height: 12),
+
+          _buildDetailRow(
+            Icons.person_outline,
+            'Name',
+            widget.ticket.passengers.isNotEmpty
+                ? widget.ticket.passengers[0].name
+                : 'Loading...',
+          ),
+
+          _buildDetailRow(
+            Icons.male_outlined,
+            'Gender',
+            widget.ticket.passengers.isNotEmpty
+                ? widget.ticket.passengers[0].gender
+                : 'Loading...',
+          ),
+
+          _buildDetailRow(
+            Icons.numbers,
+            'Age',
+            widget.ticket.passengers.isNotEmpty
+                ? widget.ticket.passengers[0].age.toString()
+                : 'Loading...',
+          ),
+
+          _buildDetailRow(
+            Icons.event_seat,
+            'Seat',
+            widget.ticket.passengers.isNotEmpty
+                ? widget.ticket.passengers[0].seatNumber
+                : 'Loading...',
+          ),
+          // _buildDetailRow(Icons.airplane_ticket, 'Number of Tickets', ticketCount.toString()),
+          // const SizedBox(height: 8),
+          // _buildDetailRow(Icons.person, 'Gender', widget.ticket.gender),
+          // const SizedBox(height: 8),
+          // _buildDetailRow(Icons.event_seat, 'Seat Number', widget.ticket.seatNumbers[0]),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDetailRow(IconData icon, String label, String value) {
+    return Row(
+      children: [
+        Icon(icon, size: 18, color: const Color(0xFF1976D2)),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                label,
+                style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                value,
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black87,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
@@ -1331,6 +1480,8 @@ class _BusDetailsScreenState extends State<BusDetailsScreen> {
                     ),
 
                     const SizedBox(height: 20),
+
+                    _buildContactAndPassengerSection(),
                   ],
                 ),
               ),
@@ -1822,17 +1973,12 @@ class _BusDetailsScreenState extends State<BusDetailsScreen> {
                   ],
                 ),
 
-
-                 Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
-                        Icon(
-                          Icons.person,
-                          size: 16,
-                          color: Colors.grey[600],
-                        ),
+                        Icon(Icons.person, size: 16, color: Colors.grey[600]),
                         const SizedBox(width: 4),
                         Text(
                           'Gender',
@@ -1894,7 +2040,6 @@ class _BusDetailsScreenState extends State<BusDetailsScreen> {
                     ),
                   ],
                 ),
-
 
                 const SizedBox(height: 16),
 
